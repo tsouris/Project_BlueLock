@@ -7,4 +7,66 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\Animations\Animation_1.json" />
+    <None Remove="Assets\Fonts\Anton\Anton-Regular.ttf" />
+    <None Remove="Assets\Fonts\Anton\OFL.txt" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Black.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-BlackItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Bold.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-BoldItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-ExtraBold.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-ExtraBoldItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-ExtraLight.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-ExtraLightItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Italic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Light.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-LightItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Medium.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-MediumItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Regular.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-SemiBold.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-SemiBoldItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-Thin.ttf" />
+    <None Remove="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
+    <None Remove="Assets\Fonts\Kanit\OFL.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Fonts\Anton\Anton-Regular.ttf" />
+    <Resource Include="Assets\Fonts\Anton\OFL.txt" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Bold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LottieSharp" Version="2.3.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Animations\Animation_1.json" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Black.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-BlackItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-BoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-ExtraBold.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-ExtraBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-ExtraLight.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-ExtraLightItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Italic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Light.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-LightItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Medium.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-MediumItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Regular.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-SemiBold.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-SemiBoldItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-Thin.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
+    <Resource Include="Assets\Fonts\Kanit\OFL.txt" />
+  </ItemGroup>
+
 </Project>

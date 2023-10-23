@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Project_BlueLock">
+    
+    <Style x:Key="AntonFont" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="/Assets/Fonts/Anton/#Anton" />
+    </Style>
+    <Style x:Key="KanitFont" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="/Assets/Fonts/Kanit/#Kanit" />
+    </Style>
+</ResourceDictionary>
