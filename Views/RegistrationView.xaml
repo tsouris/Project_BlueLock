@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:lottie="clr-namespace:LottieSharp.WPF;assembly=LottieSharp"
-        xmlns:local="clr-namespace:Project_BlueLock.Views" xmlns:transforms="clr-namespace:LottieSharp.WPF.Transforms;assembly=LottieSharp" xmlns:utilities="clr-namespace:Project_BlueLock.Utilities" d:DataContext="{d:DesignInstance Type=utilities:ViewModelBase}"
+        xmlns:local="clr-namespace:Project_BlueLock.Views" xmlns:transforms="clr-namespace:LottieSharp.WPF.Transforms;assembly=LottieSharp" xmlns:utilities="clr-namespace:Project_BlueLock.Utilities"
              mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800" x:Name="RegWindow">
     <Grid>
@@ -46,7 +46,7 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     BorderBrush="#01FFFF"
                     BorderThickness="2"
-                    Command="{Binding ShowCreateProfileCommand}">
+                    Command="{Binding GoToCreateProfile}">
                 <TextBlock Text="Create Profile" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="#01FFFF" FontSize="32"/>
             </Button>
 
@@ -58,7 +58,7 @@
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
                     BorderBrush="#01FFFF"
                     BorderThickness="2"
-                    Command="{Binding Navigation.LoginCommand}">
+                    Command="{Binding GoToLogin}">
                 <TextBlock Text="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="#01FFFF" FontSize="32"/>
             </Button>
         </StackPanel>

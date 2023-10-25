@@ -1,5 +1,4 @@
-﻿using Project_BlueLock.ViewModels;
-using System.Windows;
+﻿using System.Windows;
 
 namespace Project_BlueLock
 {
@@ -11,7 +10,6 @@ namespace Project_BlueLock
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new NavigationVM();
         }
     }
 }

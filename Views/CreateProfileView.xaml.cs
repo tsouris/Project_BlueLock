@@ -1,5 +1,4 @@
-﻿using Project_BlueLock.ViewModels;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 
 namespace Project_BlueLock.Views
 {
@@ -8,8 +7,6 @@ namespace Project_BlueLock.Views
     /// </summary>
     public partial class CreateProfileView : UserControl
     {
-        
-
         public CreateProfileView()
         {
             InitializeComponent();

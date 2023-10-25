@@ -3,15 +3,15 @@
                     xmlns:ViewModel="clr-namespace:Project_BlueLock.ViewModels"
                     xmlns:view="clr-namespace:Project_BlueLock.Views">
     
-    <DataTemplate DataType="{x:Type ViewModel:RegistrationViewModel}">
+    <DataTemplate DataType="{x:Type ViewModel:RegistrationVM}">
         <view:RegistrationView/>
     </DataTemplate>
     
-    <DataTemplate DataType="{x:Type ViewModel:LoginViewModel}">
+    <DataTemplate DataType="{x:Type ViewModel:LoginVM}">
         <view:LoginView/>
     </DataTemplate>
     
-    <DataTemplate DataType="{x:Type ViewModel:CreateProfileViewModel}">
+    <DataTemplate DataType="{x:Type ViewModel:CreateProfileVM}">
         <view:CreateProfileView/>
     </DataTemplate>
 </ResourceDictionary>
