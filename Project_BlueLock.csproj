@@ -30,6 +30,8 @@
     <None Remove="Assets\Fonts\Kanit\Kanit-Thin.ttf" />
     <None Remove="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
     <None Remove="Assets\Fonts\Kanit\OFL.txt" />
+    <None Remove="Assets\Images\createProfile_page.webp" />
+    <None Remove="Assets\Images\login_page.webp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,10 +45,6 @@
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Assets\Images\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,6 +67,8 @@
     <Resource Include="Assets\Fonts\Kanit\Kanit-Thin.ttf" />
     <Resource Include="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
     <Resource Include="Assets\Fonts\Kanit\OFL.txt" />
+    <Resource Include="Assets\Images\createProfile_page.webp" />
+    <Resource Include="Assets\Images\login_page.webp" />
   </ItemGroup>
 
 </Project>
