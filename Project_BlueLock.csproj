@@ -32,6 +32,8 @@
     <None Remove="Assets\Fonts\Kanit\OFL.txt" />
     <None Remove="Assets\Images\createProfile_page.webp" />
     <None Remove="Assets\Images\login_page.webp" />
+    <None Remove="Assets\Images\login_page2.jpg" />
+    <None Remove="Assets\Images\registration_page.webp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -69,6 +71,8 @@
     <Resource Include="Assets\Fonts\Kanit\OFL.txt" />
     <Resource Include="Assets\Images\createProfile_page.webp" />
     <Resource Include="Assets\Images\login_page.webp" />
+    <Resource Include="Assets\Images\login_page2.jpg" />
+    <Resource Include="Assets\Images\registration_page.webp" />
   </ItemGroup>
 
 </Project>

@@ -9,57 +9,47 @@
              mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Offset="1" Color="#000000"/>
-                <GradientStop Offset="0" Color="#000000"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="BLUE LOCK" HorizontalAlignment="Center" VerticalAlignment="Top" Height="Auto" Width="Auto" Style="{StaticResource AntonFont}" Foreground="#64b5f6" FontSize="150"/>
-
-        <Viewbox Grid.Row="1" HorizontalAlignment="Right">
-            <lottie:LottieAnimationView x:Name="lottieBG"
-            Grid.Row="1"
-            Width="700"
-            Height="650"
-            AutoPlay="True"
-            RepeatCount="-1">
-                <lottie:LottieAnimationView.AnimationScale>
-                    <transforms:AnimationTransformBase
-                    ScaleX="1"
-                    ScaleY="1"/>
-                </lottie:LottieAnimationView.AnimationScale>
-            </lottie:LottieAnimationView>
+        <Viewbox Stretch="UniformToFill" Grid.ColumnSpan="4" Grid.RowSpan="3">
+            <Image Source="/Assets/Images/registration_page.webp"/>
         </Viewbox>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 50">
+        <TextBlock Grid.Row="0" Text="BLUE LOCK" HorizontalAlignment="Center" VerticalAlignment="Top" Height="Auto" Width="Auto" FontSize="150" Style="{StaticResource AntonFont}">
+            <TextBlock.Foreground>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#86F0FF" Offset="0.0" />
+                    <GradientStop Color="#3066be" Offset="1.0" />
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 50">
             <Button Width="350"
                     Height="50" 
                     Margin="0 0 0 15" 
                     materialDesign:ButtonAssist.CornerRadius="15" 
                     Background="Transparent"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    BorderBrush="White"
+                    BorderBrush="#00020D"
                     BorderThickness="1"
                     Command="{Binding GoToCreateProfile}">
-                <TextBlock Text="Create Profile" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="White" FontSize="24"/>
+                <TextBlock Text="Create Profile" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="#00020D" FontSize="24"/>
             </Button>
-            
+
             <Button Width="350"
                     Height="50" 
                     Margin="0 15 0 0" 
                     materialDesign:ButtonAssist.CornerRadius="15" 
                     Background="Transparent"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
-                    BorderBrush="White"
+                    BorderBrush="#00020D"
                     BorderThickness="1"
                     Command="{Binding GoToLogin}">
-                <TextBlock Text="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="White" FontSize="24"/>
+                <TextBlock Text="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="#00020D" FontSize="24"/>
             </Button>
         </StackPanel>
     </Grid>

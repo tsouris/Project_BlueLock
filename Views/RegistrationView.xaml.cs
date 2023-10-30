@@ -10,8 +10,7 @@ namespace Project_BlueLock.Views
         public RegistrationView()
         {
             InitializeComponent();
-            lottieBG.FileName = @"C:\\Users\\User\\source\\repos\\Project_BlueLock\\Assets\\Animations\\Animation_1.json";
-            lottieBG.PlayAnimation();
+          
         }
     }
 }

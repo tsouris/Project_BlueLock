@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Project_BlueLock.Views
 {
@@ -11,5 +12,11 @@ namespace Project_BlueLock.Views
         {
             InitializeComponent();
         }
+
+        private void CreateProfile_Click(object sender, MouseButtonEventArgs e)
+        {
+            // Your event handler code here
+        }
+
     }
 }
