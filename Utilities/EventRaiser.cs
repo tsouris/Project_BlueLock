@@ -2,6 +2,9 @@
 
 namespace Project_BlueLock.Utilities
 {
+    /// <summary>
+    /// Provides utility methods for raising events with various types of event arguments
+    /// </summary>
     public static class EventRaiser
     {
         public static void Raise(this EventHandler handler, object sender)

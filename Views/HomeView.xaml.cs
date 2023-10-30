@@ -3,11 +3,11 @@
 namespace Project_BlueLock.Views
 {
     /// <summary>
-    /// Interaction logic for RegistrationView.xaml
+    /// Interaction logic for HomeView.xaml
     /// </summary>
-    public partial class RegistrationView : UserControl
+    public partial class HomeView : UserControl
     {
-        public RegistrationView()
+        public HomeView()
         {
             InitializeComponent();
         }

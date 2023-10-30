@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Hosting;
 using Project_BlueLock.Interfaces;
 using Project_BlueLock.Models;
-using Project_BlueLock.Utilities;
 using Project_BlueLock.ViewModels;
 using System.Windows;
 
