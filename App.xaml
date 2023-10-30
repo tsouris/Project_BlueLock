@@ -6,7 +6,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml"/>
                 <ResourceDictionary Source="/Assets/Styles/FontStyles.xaml"/>
-                <ResourceDictionary Source="Utilities/DataTemplate.xaml"/>
+                <ResourceDictionary Source="Resources/DataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

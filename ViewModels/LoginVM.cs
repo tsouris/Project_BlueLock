@@ -1,13 +1,14 @@
 ﻿using Project_BlueLock.Utilities;
-using System.Windows.Input;
 using System;
+using System.Windows.Input;
 
 namespace Project_BlueLock.ViewModels
 {
     public class LoginVM : BaseVM, IPageViewModel
     {
-        private ICommand? _goToCreateProfile;
-        private ICommand? _goToRegistration;
+        private ICommand? _goToCreateProfilePage;
+        private ICommand? _goToRegistrationPage;
+        private ICommand? _goToHomePage;
 
         public event EventHandler<EventArgs<string>>? ViewChanged;
         public string PageId { get; set; }
@@ -22,7 +23,7 @@ namespace Project_BlueLock.ViewModels
         {
             get
             {
-                return _goToCreateProfile ??= new RelayCommand(x =>
+                return _goToCreateProfilePage ??= new RelayCommand(x =>
                 {
                     ViewChanged?.Raise(this, "2");
                 });
@@ -33,9 +34,20 @@ namespace Project_BlueLock.ViewModels
         {
             get
             {
-                return _goToRegistration ??= new RelayCommand(x =>
+                return _goToRegistrationPage ??= new RelayCommand(x =>
                 {
                     ViewChanged?.Raise(this, "1");
+                });
+            }
+        }
+
+        public ICommand GoToHome
+        {
+            get
+            {
+                return _goToHomePage ??= new RelayCommand(x =>
+                {
+                    ViewChanged?.Raise(this, "5");
                 });
             }
         }

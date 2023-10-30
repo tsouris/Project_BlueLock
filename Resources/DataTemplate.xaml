@@ -1,17 +1,28 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ViewModel="clr-namespace:Project_BlueLock.ViewModels"
-                    xmlns:view="clr-namespace:Project_BlueLock.Views">
-    
+                    xmlns:view="clr-namespace:Project_BlueLock.Views"
+                    xmlns:Flags="clr-namespace:Project_BlueLock.Utilities">
+
     <DataTemplate DataType="{x:Type ViewModel:RegistrationVM}">
         <view:RegistrationView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type ViewModel:LoginVM}">
         <view:LoginView/>
     </DataTemplate>
-    
+
     <DataTemplate DataType="{x:Type ViewModel:CreateProfileVM}">
         <view:CreateProfileView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:PlayerProfileVM}">
+        <view:PlayerProfileView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:HomeVM}">
+        <view:HomeView/>
+    </DataTemplate>
+
+    <Flags:CountryIdToFlagImageSourceConverter x:Key="CountryIdToFlagImageSourceConverter"/>
 </ResourceDictionary>

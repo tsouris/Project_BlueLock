@@ -6,8 +6,9 @@ namespace Project_BlueLock.ViewModels
 {
     public class CreateProfileVM : BaseVM, IPageViewModel
     {
-        private ICommand? _goToLogin;
-        private ICommand? _goToRegistration;
+        private ICommand? _goToLoginPage;
+        private ICommand? _goToRegistrationPage;
+        private ICommand? _goToPlayerProfilePage;
         public event EventHandler<EventArgs<string>>? ViewChanged;
         public string PageId { get; set; }
         public string Title { get; set; } = "View 2";
@@ -21,7 +22,7 @@ namespace Project_BlueLock.ViewModels
         {
             get
             {
-                return _goToLogin ??= new RelayCommand(x =>
+                return _goToLoginPage ??= new RelayCommand(x =>
                 {
                     ViewChanged?.Raise(this, "3");
                 });
@@ -32,9 +33,20 @@ namespace Project_BlueLock.ViewModels
         {
             get
             {
-                return _goToRegistration ??= new RelayCommand(x =>
+                return _goToRegistrationPage ??= new RelayCommand(x =>
                 {
                     ViewChanged?.Raise(this, "1");
+                });
+            }
+        }
+
+        public ICommand GoToPlayerProfilePage
+        {
+            get
+            {
+                return _goToPlayerProfilePage ??= new RelayCommand(x =>
+                {
+                    ViewChanged?.Raise(this, "4");
                 });
             }
         }

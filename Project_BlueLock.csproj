@@ -30,8 +30,10 @@
     <None Remove="Assets\Fonts\Kanit\Kanit-Thin.ttf" />
     <None Remove="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
     <None Remove="Assets\Fonts\Kanit\OFL.txt" />
+    <None Remove="Assets\Images\BlueLock_text.jpg" />
     <None Remove="Assets\Images\createProfile_page.webp" />
-    <None Remove="Assets\Images\login_page.webp" />
+    <None Remove="Assets\Images\flags.png" />
+    <None Remove="Assets\Images\registration_page.webp" />
   </ItemGroup>
 
   <ItemGroup>
@@ -41,10 +43,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FamFamFam.Flags.Wpf" Version="1.2.1" />
     <PackageReference Include="LottieSharp" Version="2.3.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.13" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,7 +74,8 @@
     <Resource Include="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
     <Resource Include="Assets\Fonts\Kanit\OFL.txt" />
     <Resource Include="Assets\Images\createProfile_page.webp" />
-    <Resource Include="Assets\Images\login_page.webp" />
+    <Resource Include="Assets\Images\flags.png" />
+    <Resource Include="Assets\Images\registration_page.webp" />
   </ItemGroup>
 
 </Project>

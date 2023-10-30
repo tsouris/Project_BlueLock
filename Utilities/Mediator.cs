@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace Project_BlueLock.Utilities
 {
+    /// <summary>
+    /// Manages subscriptions and notifications using a token-based system. 
+    /// It allows components to subscribe to specific events (identified by tokens) and be notified when those events occur. 
+    /// It also supports unsubscribing from events. 
+    /// </summary>
     public static class Mediator
     {
         private static IDictionary<string, List<Action<object>>> pl_dict =
