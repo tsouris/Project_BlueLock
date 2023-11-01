@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:Project_BlueLock.ViewModels" d:DataContext="{d:DesignInstance Type=vm:MainWindowVM}"
         mc:Ignorable="d"
-        Height="450" Width="800" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+        Height="450" Width="800" WindowStyle="None" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown">
     <Grid>
         <ContentControl Content="{Binding CurrentPageViewModel}"/>
     </Grid>
