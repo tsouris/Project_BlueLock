@@ -35,5 +35,29 @@ namespace Project_BlueLock.Data
                 throw new Exception("Error inserting user into the database: " + ex.Message, ex);
             }
         }
+
+        public bool CheckUserCredentials(string username, string passwordHash)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    con.Open();
+                    string check_user = "SELECT COUNT(*) FROM [dbo].Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
+                    SqlCommand cmd = new SqlCommand(check_user, con);
+
+                    cmd.Parameters.AddWithValue("@Username", username);
+                    cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
+
+                    int userCount = (int)cmd.ExecuteScalar();
+
+                    return userCount > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error checking user credentials: " + ex.Message, ex);
+            }
+        }
     }
 }

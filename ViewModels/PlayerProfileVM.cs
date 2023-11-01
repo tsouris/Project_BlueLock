@@ -10,9 +10,9 @@ namespace Project_BlueLock.ViewModels
 
         public event EventHandler<EventArgs<string>>? ViewChanged;
         public string PageId { get; set; }
-        public string Title { get; set; } = "View 4";
+        public string Title { get; set; } = "View 3";
 
-        public PlayerProfileVM(string pageIndex = "4")
+        public PlayerProfileVM(string pageIndex = "3")
         {
             PageId = pageIndex;
         }
@@ -23,7 +23,7 @@ namespace Project_BlueLock.ViewModels
             {
                 return _goToHomePage ??= new RelayCommand(x =>
                 {
-                    ViewChanged?.Raise(this, "5");
+                    ViewChanged?.Raise(this, "4");
                 });
             }
         }

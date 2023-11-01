@@ -9,9 +9,9 @@ namespace Project_BlueLock.ViewModels
         private ICommand? _goToCreateProfile;
         public event EventHandler<EventArgs<string>>? ViewChanged;
         public string PageId { get; set; }
-        public string Title { get; set; } = "View 5";
+        public string Title { get; set; } = "View 4";
 
-        public HomeVM(string pageIndex = "5")
+        public HomeVM(string pageIndex = "4")
         {
             PageId = pageIndex;
         }
@@ -22,7 +22,7 @@ namespace Project_BlueLock.ViewModels
             {
                 return _goToCreateProfile ??= new RelayCommand(x =>
                 {
-                    ViewChanged?.Raise(this, "2");
+                    ViewChanged?.Raise(this, "1");
                 });
             }
         }

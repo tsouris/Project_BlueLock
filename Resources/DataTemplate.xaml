@@ -4,10 +4,6 @@
                     xmlns:view="clr-namespace:Project_BlueLock.Views"
                     xmlns:Flags="clr-namespace:Project_BlueLock.Utilities">
 
-    <DataTemplate DataType="{x:Type ViewModel:RegistrationVM}">
-        <view:RegistrationView/>
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type ViewModel:LoginVM}">
         <view:LoginView/>
     </DataTemplate>
