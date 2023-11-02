@@ -36,27 +36,27 @@ namespace Project_BlueLock.Data.DB
             }
         }
 
-        public bool CheckUserCredentials(string username, string passwordHash)
+        public bool ValidateCredentials(string username, string password)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    string check_user = "SELECT COUNT(*) FROM [dbo].Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
-                    SqlCommand cmd = new SqlCommand(check_user, con);
+                    string query = "SELECT COUNT(*) FROM Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
+                    SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@Username", username);
-                    cmd.Parameters.AddWithValue("@PasswordHash", passwordHash);
+                    cmd.Parameters.AddWithValue("@PasswordHash", password);
 
-                    int userCount = (int)cmd.ExecuteScalar();
+                    int count = (int)cmd.ExecuteScalar();
 
-                    return userCount > 0;
+                    return count > 0;
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error checking user credentials: " + ex.Message, ex);
+                throw new Exception("Error validating user credentials: " + ex.Message, ex);
             }
         }
     }

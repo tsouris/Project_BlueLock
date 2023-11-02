@@ -1,6 +1,4 @@
-﻿using Project_BlueLock.ViewModels;
-using System.Net.Http;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace Project_BlueLock.Views
@@ -47,10 +45,34 @@ namespace Project_BlueLock.Views
             Application.Current.Shutdown();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private void pbPassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            
+            if (sender is TextBox textBox && textBox.Tag is Visibility visibility)
+            {
+                if (!string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    visibility = Visibility.Visible;
+                }
+            }
         }
 
+        private void tbUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (sender is TextBox textBox && textBox.Tag is Visibility visibility)
+            {
+                if (!string.IsNullOrWhiteSpace(textBox.Text))
+                {
+                    visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    visibility = Visibility.Visible;
+                }
+            }
+        }
     }
 }
