@@ -1,4 +1,4 @@
-﻿using Project_BlueLock.Data;
+﻿using Project_BlueLock.Data.DB;
 using Project_BlueLock.Utilities;
 using Project_BlueLock.ViewModels;
 using System;
@@ -16,7 +16,7 @@ namespace Project_BlueLock.Views
         public CreateProfileView()
         {
             InitializeComponent();
-            DataContext = new CreateProfileVM();
+            //DataContext = new CreateProfileVM();
         }
 
         private void CreateProfileButton_Click(object sender, RoutedEventArgs e)

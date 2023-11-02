@@ -1,4 +1,5 @@
 ﻿using Project_BlueLock.ViewModels;
+using System.Net.Http;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -12,7 +13,6 @@ namespace Project_BlueLock.Views
         public LoginView()
         {
             InitializeComponent();
-            //DataContext = new LoginVM();
         }
 
         private void btnMinimize_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -49,12 +49,7 @@ namespace Project_BlueLock.Views
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            //LoginVM viewModel = DataContext as LoginVM;
-
-            //if (viewModel != null)
-            //{
-            //    viewModel.GoToHomePage.Execute(null);
-            //}
+            
         }
 
     }

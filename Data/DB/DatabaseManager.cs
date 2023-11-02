@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace Project_BlueLock.Data
+namespace Project_BlueLock.Data.DB
 {
     public class DatabaseManager
     {
