@@ -40,7 +40,7 @@
                                 Margin="15,25,0,40">
 
                         <TextBlock Text="BLUE LOCK"
-                                   Foreground="{StaticResource titleColor2}"
+                                   Foreground="{StaticResource titleColor1}"
                                    FontSize="20"
                                    Style="{StaticResource KanitFont}"
                                    FontWeight="Medium"
@@ -61,19 +61,10 @@
 
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color1}"
-                                 Command="{Binding ShowCustomerViewCommand}">
+                                 Click="rbMatches_Click">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="SoccerBall" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Matches" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 Command="{Binding GoToCreateProfilePage}">
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Register" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -191,9 +182,18 @@
                         </StackPanel>
                     </Grid>
 
-                    <ContentControl Content="{Binding CurrentChildView}"
-                                    Grid.Row="2"
-                                    Margin="25"/>
+                    <ItemsControl x:Name="listBoxMatches" Grid.Row="2" Margin="25">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding HomeTeam}" />
+                                    <TextBlock Text=" vs " />
+                                    <TextBlock Text="{Binding AwayTeam}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
                 </Grid>
             </Border>
         </Grid>

@@ -1,28 +1,32 @@
-﻿using Project_BlueLock.Data;
-using Project_BlueLock.Utilities;
+﻿using Project_BlueLock.Utilities;
 using System;
-using System.Text;
 using System.Windows.Input;
-using System.Security.Cryptography;
-using System.Windows;
 
 namespace Project_BlueLock.ViewModels
 {
     public class LoginVM : BaseVM, IPageViewModel
     {
-        private ICommand? _goToCreateProfilePage;
-        private ICommand? _goToHomePage;
+        private ICommand _goToHomePage;
+        private ICommand _goToCreateProfilePage;
 
-        public event EventHandler<EventArgs<string>>? ViewChanged;
-
-        public event EventHandler SuccessfulLogin;
-
+        public event EventHandler<EventArgs<string>> ViewChanged;
         public string PageId { get; set; }
-        public string Title { get; set; } = "View 2";
+        public string Title { get; set; } = "Login";
 
         public LoginVM(string pageIndex = "2")
         {
             PageId = pageIndex;
+        }
+
+        public ICommand GoToHomePage
+        {
+            get
+            {
+                return _goToHomePage ??= new RelayCommand(x =>
+                {
+                    ViewChanged?.Raise(this, "4");
+                });
+            }
         }
 
         public ICommand GoToCreateProfilePage
@@ -57,52 +61,5 @@ namespace Project_BlueLock.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
-
-        public ICommand GoToHomePage
-        {
-            get
-            {
-                return _goToHomePage ??= new RelayCommand(x =>
-                {
-                    ViewChanged?.Raise(this, "4");
-                });
-            }
-        }
-            //public ICommand GoToHomePage
-            //{
-            //    get
-            //    {
-            //        return _goToHomePage ??= new RelayCommand(x =>
-            //        {
-            //            string passwordHash = CalculateHash(Password);
-
-            //            if (ValidateCredentials(Username, passwordHash))
-            //            {
-            //                SuccessfulLogin?.Invoke(this, EventArgs.Empty);
-            //            }
-            //            else
-            //            {
-            //                //tbPasswordError.Visibility = Visibility.Visible;
-            //            }
-            //        });
-            //    }
-            //}
-
-            //private readonly DatabaseManager databaseManager = new DatabaseManager();
-
-            //private string CalculateHash(string input)
-            //{
-            //    using (SHA256 sha256 = SHA256Managed.Create())
-            //    {
-            //        byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
-            //        return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
-            //    }
-            //}
-
-            //private bool ValidateCredentials(string username, string password)
-            //{
-            //    string passwordHash = CalculateHash(password); // You need to implement a hashing function
-            //    return databaseManager.CheckUserCredentials(username, passwordHash);
-            //}
-        }
+    }
 }

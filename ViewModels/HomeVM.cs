@@ -1,5 +1,9 @@
-﻿using Project_BlueLock.Utilities;
+﻿using Project_BlueLock.Data.API;
+using Project_BlueLock.Utilities;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Project_BlueLock.ViewModels
@@ -24,6 +28,30 @@ namespace Project_BlueLock.ViewModels
                 {
                     ViewChanged?.Raise(this, "1");
                 });
+            }
+        }
+
+        private List<Match> _matches;
+        public List<Match> Matches
+        {
+            get { return _matches; }
+            set
+            {
+                _matches = value;
+                OnPropertyChanged(nameof(Matches));
+            }
+        }
+
+        public async Task LoadMatchesAsync(string competitionId)
+        {
+            try
+            {
+                FootballDataApiClient apiClient = new FootballDataApiClient();
+                Matches = await apiClient.GetMatchesAsync(competitionId);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Project_BlueLock.Utilities;
+﻿using Project_BlueLock.Data.DB;
+using Project_BlueLock.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
@@ -8,9 +9,15 @@ namespace Project_BlueLock.ViewModels
     public class CreateProfileVM : BaseVM, IPageViewModel
     {
         private ICommand? _goToLoginPage;
+
         private ICommand? _goToPlayerProfilePage;
+
+        public ICommand NextCommand { get; private set; }
+
         public event EventHandler<EventArgs<string>>? ViewChanged;
+
         public string PageId { get; set; }
+
         public string Title { get; set; } = "View 1";
 
         public CreateProfileVM(string pageIndex = "1")

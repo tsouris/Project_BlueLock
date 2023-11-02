@@ -1,6 +1,8 @@
 ﻿using Project_BlueLock.Utilities;
+using Project_BlueLock.ViewModels;
 using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -65,6 +67,17 @@ namespace Project_BlueLock.Views
         private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+
+        private void rbMatches_Click(object sender, RoutedEventArgs e)
+        {
+            string competitionId = "CL"; // Replace with the desired competition ID
+
+            Application.Current.Dispatcher.Invoke(async () =>
+            {
+                await ((HomeVM)DataContext).LoadMatchesAsync(competitionId);
+            });
         }
     }
 }
