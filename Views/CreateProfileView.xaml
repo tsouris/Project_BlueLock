@@ -10,21 +10,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Border CornerRadius="12">
-        <Border.Background>
-            <ImageBrush ImageSource="/Assets/Images/createProfile_page.webp" Stretch="UniformToFill"/>
-        </Border.Background>
+        <Border CornerRadius="12">
+            <Border.Background>
+                <ImageBrush ImageSource="/Assets/Images/createProfile_page.webp" Stretch="UniformToFill"/>
+            </Border.Background>
         
-        <Border CornerRadius="10"                    
-            BorderThickness="2"
-            Opacity="0.85">
-            <Border.BorderBrush>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
-                    <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
-                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.BorderBrush>
+            <Border CornerRadius="10"                    
+                BorderThickness="2"
+                Opacity="0.85">
+                <Border.BorderBrush>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                        <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
+                        <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.BorderBrush>
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
