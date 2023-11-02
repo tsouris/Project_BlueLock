@@ -6,9 +6,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:Project_BlueLock.Utilities" 
-             xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:BaseVM}"
+             xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:LoginVM}"
              mc:Ignorable="d" 
-             d:DesignHeight="550" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="850">
     
     <Border CornerRadius="12">
         <Border.Background>
@@ -28,8 +29,8 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0"/>
-                    <GradientStop Color="#1B1448" Offset="1"/>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -97,7 +98,7 @@
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="1">
+                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="6" BorderThickness="2">
                         <Border.BorderBrush>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
@@ -110,14 +111,14 @@
                                 <Viewbox>
                                     <TextBlock Text="Log into your" Margin="-45 5 10 5" Style="{StaticResource KanitFont}" FontSize="10">
                                         <Run Foreground="White">Log into your</Run>
-                                        <Run Foreground="#00E0FF">BlueLock</Run>
+                                        <Run Foreground="{StaticResource titleColor1}">BlueLock</Run>
                                         <Run Foreground="White">profile</Run>
                                     </TextBlock>
                                 </Viewbox>
 
                                 <Viewbox Margin="0 0 0 10">
                                     <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                        <TextBox x:Name="tbUsername" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Username}"/>
+                                        <TextBox x:Name="tbUsername" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Username}" Tag="{Binding TbUsernameErrorVisibility}" TextChanged="tbUsername_TextChanged"/>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
                                                 <materialDesign:PackIcon
@@ -125,7 +126,7 @@
                                                     Kind="AccountCircle"/>
                                                 <TextBlock
                                                     Margin="0 1 0 0"
-                                                    Text="Name"/>
+                                                    Text="Username"/>
                                             </StackPanel>
                                         </materialDesign:HintAssist.Hint>
                                     </Border>
@@ -138,7 +139,7 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
-                                            <PasswordBox x:Name="pbPassword" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" materialDesign:TextFieldAssist.HasClearButton="True" local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay}"/>
+                                            <PasswordBox x:Name="pbPassword" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" materialDesign:TextFieldAssist.HasClearButton="True" local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay}" PasswordChanged="pbPassword_PasswordChanged" Tag="{Binding TbPasswordErrorVisibility}"/>
                                         </Grid>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
@@ -153,42 +154,32 @@
                                     </Border>
                                 </Viewbox>
 
-                                <!--<TextBlock Text="{Binding ErrorMessage}" Foreground="Red" HorizontalAlignment="Center" VerticalAlignment="Center"/>-->
+                                <Viewbox Height="15">
+                                    <TextBlock Foreground="Red" Text="{Binding ErrorMessage}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
 
-                                <!--<Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                    <ComboBox x:Name="cbCountry" ItemsSource="{Binding Source={x:Static flags:CountryData.AllCountries}}" Height="35" Width="260" Background="Transparent">
-                                        <ComboBox.ItemTemplate>
-                                            <DataTemplate DataType="flags:CountryData">
-                                                <StackPanel Orientation="Horizontal" Background="Transparent">
-                                                    <Image Source="{Binding Path=Iso2, Converter={StaticResource CountryIdToFlagImageSourceConverter}}" Stretch="None" Width="25" Height="20" RenderOptions.BitmapScalingMode="HighQuality" />
-                                                    <TextBlock Text="{Binding Path=Name}" Margin="5 0 0 0" Foreground="White" FontSize="15"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ComboBox.ItemTemplate>
-                                    </ComboBox>
-                                </Border>-->
-
-                                <Viewbox>
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0 10 0 0">
-                                        <Button
-                                            Width="100" 
+                                <Viewbox Margin="20 0 20 0">
+                                    <Button
+                                            Width="300" 
                                             Height="30"
                                             Margin="0 10 0 0"
                                             materialDesign:ButtonAssist.CornerRadius="15"
                                             Background="Transparent"
                                             BorderBrush="#202020"
                                             BorderThickness="1"
-                                            Click="Login_Click"
-                                            Command="{Binding GoToHomePage}">
-                                            <TextBlock Text="Next" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="#00E0FF" FontSize="15"/>
-                                        </Button>
+                                            Command="{Binding LoginCommand}">
+                                        <TextBlock Text="Login" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
+                                    </Button>
+                                </Viewbox>
 
-                                        <Button Width="400" Height="Auto" Background="Transparent" BorderBrush="Transparent">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Dont have an account?" VerticalAlignment="Center" Foreground="White" FontSize="15"/>
-                                                <Button Width="Auto" Height="Auto" VerticalAlignment="Center" Content="Create Profile" Margin="0 0 0 0" BorderBrush="#00020D" Background="Transparent" Foreground="#00E0FF" Command="{Binding GoToCreateProfilePage}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
-                                            </StackPanel>
-                                        </Button>
+                                <Viewbox>
+                                    <StackPanel Orientation="Horizontal" Margin="10 2 10 0">
+                                        <TextBlock Text="Don't have an account?" VerticalAlignment="Center" Foreground="White" FontSize="5" Margin="0 0 2 0" Style="{StaticResource KanitFont}"/>
+                                        <TextBlock VerticalAlignment="Center">
+                                                <Hyperlink Command="{Binding GoToCreateProfilePage}">
+                                                    <TextBlock Text="Create Profile" Foreground="{StaticResource titleColor1}" TextDecorations="Underline" FontSize="5" Style="{StaticResource KanitFont}"/>
+                                                </Hyperlink>
+                                            </TextBlock>
                                     </StackPanel>
                                 </Viewbox>
                             </StackPanel>

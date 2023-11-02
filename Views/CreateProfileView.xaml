@@ -6,15 +6,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:local="clr-namespace:Project_BlueLock.Utilities" 
-             xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CreateProfileVM}"
+             xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels" 
+             d:DataContext="{d:DesignInstance Type=viewmodels:CreateProfileVM}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="550" d:DesignWidth="850">
 
     <Border CornerRadius="12">
         <Border.Background>
             <ImageBrush ImageSource="/Assets/Images/createProfile_page.webp" Stretch="UniformToFill"/>
         </Border.Background>
-        
+
         <Border CornerRadius="10"                    
             BorderThickness="2"
             Opacity="0.85">
@@ -28,9 +29,9 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#060531" Offset="0"/>
-                    <GradientStop Color="#1B1448" Offset="1"/>
-                </LinearGradientBrush>
+                    <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                </LinearGradientBrush> 
             </Border.Background>
 
             <Grid>
@@ -64,7 +65,7 @@
                                 HorizontalAlignment="Center">
                         <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
-                    
+
                     <Button x:Name="btnMaximize"
                                 Style="{StaticResource controlButton}"
                                 Tag="{StaticResource color6}"
@@ -97,7 +98,7 @@
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
 
-                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="7" BorderThickness="1">
+                    <Border Grid.Column="1" Grid.Row="1" CornerRadius="6" BorderThickness="2">
                         <Border.BorderBrush>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                                 <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
@@ -110,14 +111,14 @@
                                 <Viewbox>
                                     <TextBlock Text="Create your" Margin="-45 5 10 5" Style="{StaticResource KanitFont}" FontSize="10">
                                         <Run Foreground="White">Create your own</Run>
-                                        <Run Foreground="#00E0FF">BlueLock</Run>
+                                        <Run Foreground="{StaticResource titleColor1}">BlueLock</Run>
                                         <Run Foreground="White">profile</Run>
                                     </TextBlock>
                                 </Viewbox>
 
                                 <Viewbox Margin="0 0 0 10">
                                     <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                        <TextBox x:Name="tbName" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Name}" TextChanged="tbName_TextChanged"/>
+                                        <TextBox x:Name="tbName" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Name}" TextChanged="tbName_TextChanged" Tag="{Binding TbNameErrorVisibility}"/>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
                                                 <materialDesign:PackIcon
@@ -131,11 +132,13 @@
                                     </Border>
                                 </Viewbox>
 
-                                <TextBlock x:Name="tbNameError" Foreground="Red" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                
+                                <Viewbox Height="15">
+                                    <TextBlock Foreground="Red" Visibility="{Binding TbNameErrorVisibility}" Text="{Binding TbNameErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
+
                                 <Viewbox Margin="0 0 0 10">
                                     <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                        <TextBox x:Name="tbSurname" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Surname}" TextChanged="tbSurname_TextChanged"/>
+                                        <TextBox x:Name="tbSurname" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Surname}" TextChanged="tbSurname_TextChanged" Tag="{Binding TbSurnameErrorVisibility}"/>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
                                                 <materialDesign:PackIcon
@@ -149,11 +152,13 @@
                                     </Border>
                                 </Viewbox>
 
-                                <TextBlock x:Name="tbSurnameError" Foreground="Red" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                
+                                <Viewbox Height="15">
+                                    <TextBlock Foreground="Red" Visibility="{Binding TbSurnameErrorVisibility}" Text="{Binding TbSurnameErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
+
                                 <Viewbox Margin="0 0 0 10">
                                     <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                        <TextBox x:Name="tbUsername" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Username}" TextChanged="tbUsername_TextChanged"/>
+                                        <TextBox x:Name="tbUsername" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Username}" TextChanged="tbUsername_TextChanged" Tag="{Binding TbUsernameErrorVisibility}"/>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
                                                 <materialDesign:PackIcon
@@ -167,7 +172,9 @@
                                     </Border>
                                 </Viewbox>
 
-                                <TextBlock x:Name="tbUsernameError" Foreground="Red" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Viewbox Height="15">
+                                    <TextBlock Foreground="Red" Visibility="{Binding TbUsernameErrorVisibility}" Text="{Binding TbUsernameErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
                                 
                                 <Viewbox Margin="0 0 0 10">
                                     <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
@@ -176,7 +183,7 @@
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="Auto" />
                                             </Grid.ColumnDefinitions>
-                                            <PasswordBox x:Name="pbPassword" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" materialDesign:TextFieldAssist.HasClearButton="True" local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay}" PasswordChanged="PasswordBox_PasswordChanged"/>
+                                            <PasswordBox x:Name="pbPassword" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" materialDesign:TextFieldAssist.HasClearButton="True" local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay}" PasswordChanged="PasswordBox_PasswordChanged" Tag="{Binding TbPasswordErrorVisibility}"/>
                                         </Grid>
                                         <materialDesign:HintAssist.Hint>
                                             <StackPanel Orientation="Horizontal">
@@ -191,8 +198,10 @@
                                     </Border>
                                 </Viewbox>
 
-                                <TextBlock x:Name="tbPasswordError" Foreground="Red" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                
+                                <Viewbox Height="15">
+                                    <TextBlock Foreground="Red" Visibility="{Binding TbPasswordErrorVisibility}" Text="{Binding TbPasswordErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Viewbox>
+
                                 <!--<Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
                                     <ComboBox x:Name="cbCountry" ItemsSource="{Binding Source={x:Static flags:CountryData.AllCountries}}" Height="35" Width="260" Background="Transparent">
                                         <ComboBox.ItemTemplate>
@@ -206,27 +215,28 @@
                                     </ComboBox>
                                 </Border>-->
 
-                                <Viewbox>
-                                    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0 10 0 0">
-                                        <Button
-                                            Width="100" 
+                                <Viewbox Margin="20 0 20 0">
+                                    <Button
+                                            Width="300" 
                                             Height="30"
                                             Margin="0 10 0 0"
                                             materialDesign:ButtonAssist.CornerRadius="15"
                                             Background="Transparent"
                                             BorderBrush="#202020"
                                             BorderThickness="1"
-                                            Click="CreateProfileButton_Click"
-                                            Command="{Binding GoToHomePage}">
-                                            <TextBlock Text="Next" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="#00E0FF" FontSize="15"/>
-                                        </Button>
-                                        
-                                        <Button Width="400" Height="Auto" Background="Transparent" BorderBrush="Transparent">
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="Already have an account?" VerticalAlignment="Center" Foreground="White" FontSize="15"/>
-                                                <Button Width="Auto" Height="Auto" VerticalAlignment="Center" Content="Login" Margin="0 0 0 0" BorderBrush="#00020D" Background="Transparent" Foreground="#00E0FF" Command="{Binding GoToLoginPage}" IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"/>
-                                            </StackPanel>
-                                        </Button>
+                                            Command="{Binding NextCommand}">
+                                        <TextBlock Text="Next" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
+                                    </Button>
+                                </Viewbox>
+
+                                <Viewbox>
+                                    <StackPanel Orientation="Horizontal" Margin="10 2 10 0">
+                                        <TextBlock Text="Already have an account?" VerticalAlignment="Center" Foreground="White" FontSize="5" Margin="0 0 2 0" Style="{StaticResource KanitFont}"/>
+                                        <TextBlock VerticalAlignment="Center">
+                                                <Hyperlink Command="{Binding GoToLoginPage}">
+                                                    <TextBlock Text="Login" Foreground="{StaticResource titleColor1}" TextDecorations="Underline" FontSize="5" Style="{StaticResource KanitFont}"/>
+                                                </Hyperlink>
+                                            </TextBlock>
                                     </StackPanel>
                                 </Viewbox>
                             </StackPanel>
