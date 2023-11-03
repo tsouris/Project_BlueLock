@@ -62,20 +62,18 @@ namespace Project_BlueLock.Views
             }
         }
 
-        private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
+        //private void Button_ContextMenuOpening(object sender, ContextMenuEventArgs e)
+        //{
+        //    userOptionsContextMenu.PlacementTarget = sender as UIElement;
+        //    userOptionsContextMenu.IsOpen = true;
+        //    e.Handled = true;
+        //}
 
-        }
-
-        private void rbHome_Checked(object sender, RoutedEventArgs e)
-        {
-            if (DataContext != null)
-            {
-                ((HomeVM)DataContext).TitleHome = "Home Page Title";
-                ((HomeVM)DataContext).VideoSource = "video.mp4";
-                ((HomeVM)DataContext).Description = "Description for Home Page";
-            }
-        }
+        //private void LogOut_Click(object sender, RoutedEventArgs e)
+        //{
+        //    LoginView loginView = new LoginView(); 
+        //    Window.GetWindow(this).Content = loginView;
+        //}
 
         //private void rbMatches_Click(object sender, RoutedEventArgs e)
         //{

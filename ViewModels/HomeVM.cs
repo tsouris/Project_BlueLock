@@ -7,17 +7,16 @@ namespace Project_BlueLock.ViewModels
 {
     class HomeVM : BaseVM, IPageViewModel
     {
-        private ICommand? _goToCreateProfile;
         public event EventHandler<EventArgs<string>>? ViewChanged;
         public string PageId { get; set; }
         public string Title { get; set; } = "View 4";
 
-        //New
         private BaseVM _currentChildView;
+
         private string _caption;
+
         private IconChar _icon;
 
-        //New
         public BaseVM CurrentChildView
         {
             get
@@ -55,32 +54,33 @@ namespace Project_BlueLock.ViewModels
             }
         }
 
-        //New
         public ICommand ShowHomeContentCommand { get; }
+
         public ICommand ShowMatchContentCommand { get; }
-        public ICommand ShowProfileContentCommand { get; }
+
         public ICommand ShowTrainingContentCommand { get; }
 
+        public ICommand ShowProfileContentCommand { get; }
 
         public HomeVM(string pageIndex = "4")
         {
             PageId = pageIndex;
 
-            //New
             ShowHomeContentCommand = new RelayCommand(ExecuteShowHomeContentCommand);
+
             ShowMatchContentCommand = new RelayCommand(ExecuteShowMatchContentCommand);
-            ShowProfileContentCommand = new RelayCommand(ExecuteShowProfileContentCommand);
+
             ShowTrainingContentCommand = new RelayCommand(ExecuteShowTrainingContentCommand);
 
+            ShowProfileContentCommand = new RelayCommand(ExecuteShowProfileContentCommand);
 
             ExecuteShowHomeContentCommand(null);
         }
 
-        //New
         private void ExecuteShowHomeContentCommand(object obj)
         {
             CurrentChildView = new HomeContentVM();
-            Caption = "Dashboard";
+            Caption = "Home";
             Icon = IconChar.Home;
         }
 
@@ -91,13 +91,6 @@ namespace Project_BlueLock.ViewModels
             Icon = IconChar.SoccerBall;
         }
 
-        private void ExecuteShowProfileContentCommand(object obj)
-        {
-            CurrentChildView = new ProfileContentVM();
-            Caption = "Profile";
-            Icon = IconChar.User;
-        }
-
         private void ExecuteShowTrainingContentCommand(object obj)
         {
             CurrentChildView = new TrainingContentVM();
@@ -105,48 +98,11 @@ namespace Project_BlueLock.ViewModels
             Icon = IconChar.Dumbbell;
         }
 
-        public ICommand GoToCreateProfile
+        private void ExecuteShowProfileContentCommand(object obj)
         {
-            get
-            {
-                return _goToCreateProfile ??= new RelayCommand(x =>
-                {
-                    ViewChanged?.Raise(this, "1");
-                });
-            }
-        }
-
-        private string _title;
-        public string TitleHome
-        {
-            get { return _title; }
-            set
-            {
-                _title = value;
-                OnPropertyChanged(nameof(TitleHome));
-            }
-        }
-
-        private string _videoSource;
-        public string VideoSource
-        {
-            get { return _videoSource; }
-            set
-            {
-                _videoSource = value;
-                OnPropertyChanged(nameof(VideoSource));
-            }
-        }
-
-        private string _description;
-        public string Description
-        {
-            get { return _description; }
-            set
-            {
-                _description = value;
-                OnPropertyChanged(nameof(Description));
-            }
+            CurrentChildView = new ProfileContentVM();
+            Caption = "Profile";
+            Icon = IconChar.User;
         }
 
         //private List<Match> _matches;
