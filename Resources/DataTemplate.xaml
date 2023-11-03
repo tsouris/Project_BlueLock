@@ -20,5 +20,21 @@
         <view:HomeView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type ViewModel:HomeContentVM}">
+        <view:HomeContentView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:MatchContentVM}">
+        <view:MatchContentView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:ProfileContentVM}">
+        <view:TrainingContentView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type ViewModel:TrainingContentVM}">
+        <view:ProfileContentView/>
+    </DataTemplate>
+
     <Flags:CountryIdToFlagImageSourceConverter x:Key="CountryIdToFlagImageSourceConverter"/>
 </ResourceDictionary>

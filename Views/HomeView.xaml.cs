@@ -1,12 +1,9 @@
-﻿using Project_BlueLock.Utilities;
-using Project_BlueLock.ViewModels;
+﻿using Project_BlueLock.ViewModels;
 using System;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Interop;
 
 namespace Project_BlueLock.Views
 {
@@ -18,6 +15,7 @@ namespace Project_BlueLock.Views
         public HomeView()
         {
             InitializeComponent();
+            DataContext = new HomeVM();
         }
 
         [DllImport("user32.dll")]
@@ -69,15 +67,24 @@ namespace Project_BlueLock.Views
 
         }
 
-
-        private void rbMatches_Click(object sender, RoutedEventArgs e)
+        private void rbHome_Checked(object sender, RoutedEventArgs e)
         {
-            string competitionId = "CL"; // Replace with the desired competition ID
-
-            Application.Current.Dispatcher.Invoke(async () =>
+            if (DataContext != null)
             {
-                await ((HomeVM)DataContext).LoadMatchesAsync(competitionId);
-            });
+                ((HomeVM)DataContext).TitleHome = "Home Page Title";
+                ((HomeVM)DataContext).VideoSource = "video.mp4";
+                ((HomeVM)DataContext).Description = "Description for Home Page";
+            }
         }
+
+        //private void rbMatches_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string competitionId = "CL"; // Replace with the desired competition ID
+
+        //    Application.Current.Dispatcher.Invoke(async () =>
+        //    {
+        //        await ((HomeVM)DataContext).LoadMatchesAsync(competitionId);
+        //    });
+        //}
     }
 }
