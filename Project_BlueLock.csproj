@@ -35,6 +35,7 @@
     <None Remove="Assets\Images\createProfile_page.webp" />
     <None Remove="Assets\Images\flags.png" />
     <None Remove="Assets\Images\registration_page.webp" />
+    <None Remove="Assets\Videos\BlueLock_video.mp4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -80,6 +81,7 @@
     <Resource Include="Assets\Images\createProfile_page.webp" />
     <Resource Include="Assets\Images\flags.png" />
     <Resource Include="Assets\Images\registration_page.webp" />
+    <Content Include="Assets\Videos\BlueLock_video.mp4" />
   </ItemGroup>
 
 </Project>
