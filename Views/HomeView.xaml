@@ -3,7 +3,8 @@
              xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeVM}"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels" xmlns:local="clr-namespace:Project_BlueLock.Views"
+             d:DataContext="{d:DesignInstance Type=viewmodels:HomeVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
@@ -49,10 +50,12 @@
                     </StackPanel>
 
                     <!--Menu Buttons-->
-                    <RadioButton Style="{StaticResource menuButton}"
+                    <RadioButton x:Name="rbHome" 
+                                 Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color1}"
                                  IsChecked="True"
-                                 Command="{Binding ShowHomeViewCommand}">
+                                 Command="{Binding ShowHomeContentCommand}"
+                                 Checked="rbHome_Checked">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Home" Style="{StaticResource menuButtonText}"/>
@@ -61,10 +64,28 @@
 
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color1}"
-                                 Click="rbMatches_Click">
+                                 Command="{Binding ShowMatchContentCommand}">
                         <StackPanel Orientation="Horizontal">
                             <fa:IconImage Icon="SoccerBall" Style="{StaticResource menuButtonIcon}"/>
                             <TextBlock Text="Matches" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color1}"
+                                 Command="{Binding ShowTrainingContentCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="Dumbbell" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Training" Style="{StaticResource menuButtonText}"/>
+                        </StackPanel>
+                    </RadioButton>
+
+                    <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color1}"
+                                 Command="{Binding ShowProfileContentCommand}">
+                        <StackPanel Orientation="Horizontal">
+                            <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Profile" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
@@ -182,7 +203,12 @@
                         </StackPanel>
                     </Grid>
 
-                    <ItemsControl x:Name="listBoxMatches" Grid.Row="2" Margin="25">
+                    <!--Content section / Child views-->
+                    <ContentControl Content="{Binding CurrentChildView}"
+                                    Grid.Row="2"
+                                    Margin="25"/>
+                    
+                    <!--<ItemsControl x:Name="listBoxMatches" Grid.Row="2" Margin="25">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -192,8 +218,7 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-
+                    </ItemsControl>-->
                 </Grid>
             </Border>
         </Grid>

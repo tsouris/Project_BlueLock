@@ -1,8 +1,6 @@
 ﻿using Project_BlueLock.Data.DB;
 using Project_BlueLock.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Windows;
 using System.Windows.Input;
 
 namespace Project_BlueLock.ViewModels

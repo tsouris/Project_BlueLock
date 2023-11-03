@@ -31,6 +31,7 @@
     <None Remove="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
     <None Remove="Assets\Fonts\Kanit\OFL.txt" />
     <None Remove="Assets\Images\BlueLock_text.jpg" />
+    <None Remove="Assets\Images\createPlayerProfile_page.jpg" />
     <None Remove="Assets\Images\createProfile_page.webp" />
     <None Remove="Assets\Images\flags.png" />
     <None Remove="Assets\Images\registration_page.webp" />
@@ -75,6 +76,7 @@
     <Resource Include="Assets\Fonts\Kanit\Kanit-Thin.ttf" />
     <Resource Include="Assets\Fonts\Kanit\Kanit-ThinItalic.ttf" />
     <Resource Include="Assets\Fonts\Kanit\OFL.txt" />
+    <Resource Include="Assets\Images\createPlayerProfile_page.jpg" />
     <Resource Include="Assets\Images\createProfile_page.webp" />
     <Resource Include="Assets\Images\flags.png" />
     <Resource Include="Assets\Images\registration_page.webp" />
