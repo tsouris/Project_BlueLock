@@ -35,6 +35,9 @@
     <None Remove="Assets\Images\createProfile_page.webp" />
     <None Remove="Assets\Images\flags.png" />
     <None Remove="Assets\Images\registration_page.webp" />
+    <None Remove="Assets\Images\training_image1.webp" />
+    <None Remove="Assets\Images\training_image2.webp" />
+    <None Remove="Assets\Images\training_image3.jpg" />
     <None Remove="Assets\Videos\BlueLock_video.mp4" />
   </ItemGroup>
 
@@ -81,6 +84,9 @@
     <Resource Include="Assets\Images\createProfile_page.webp" />
     <Resource Include="Assets\Images\flags.png" />
     <Resource Include="Assets\Images\registration_page.webp" />
+    <Resource Include="Assets\Images\training_image1.webp" />
+    <Resource Include="Assets\Images\training_image2.webp" />
+    <Resource Include="Assets\Images\training_image3.jpg" />
     <Content Include="Assets\Videos\BlueLock_video.mp4" />
   </ItemGroup>
 
