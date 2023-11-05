@@ -91,42 +91,18 @@ namespace Project_BlueLock.ViewModels
             Icon = IconChar.SoccerBall;
         }
 
-        private void ExecuteShowTrainingContentCommand(object obj)
-        {
-            CurrentChildView = new TrainingContentVM();
-            Caption = "Training";
-            Icon = IconChar.Dumbbell;
-        }
-
         private void ExecuteShowProfileContentCommand(object obj)
         {
-            CurrentChildView = new ProfileContentVM();
+            CurrentChildView = new TrainingContentVM();
             Caption = "Profile";
             Icon = IconChar.User;
         }
 
-        //private List<Match> _matches;
-        //public List<Match> Matches
-        //{
-        //    get { return _matches; }
-        //    set
-        //    {
-        //        _matches = value;
-        //        OnPropertyChanged(nameof(Matches));
-        //    }
-        //}
-
-        //public async Task LoadMatchesAsync(string competitionId)
-        //{
-        //    try
-        //    {
-        //        FootballDataApiClient apiClient = new FootballDataApiClient();
-        //        Matches = await apiClient.GetMatchesAsync(competitionId);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //}
+        private void ExecuteShowTrainingContentCommand(object obj)
+        {
+            CurrentChildView = new ProfileContentVM();
+            Caption = "Training";
+            Icon = IconChar.Dumbbell;
+        }
     }
 }
