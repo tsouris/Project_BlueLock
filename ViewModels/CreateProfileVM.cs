@@ -214,7 +214,7 @@ namespace Project_BlueLock.ViewModels
                     dbManager.InsertUser(Name, Surname, Username, Password);
                     MessageBox.Show("Profile created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    ViewChanged?.Invoke(this, new EventArgs<string>("4"));
+                    ViewChanged?.Invoke(this, new EventArgs<string>("3"));
                 }
                 catch (Exception ex)
                 {

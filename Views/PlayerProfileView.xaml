@@ -50,37 +50,37 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Text="CREATE PLAYER PROFILE"
-                               Foreground="DarkGray"
-                               FontSize="10"
-                               FontFamily="Montserrat"
-                               Grid.Column="0"
-                               VerticalAlignment="Center"
-                               Margin="10,0,0,0"/>
+                   Foreground="DarkGray"
+                   FontSize="10"
+                   FontFamily="Montserrat"
+                   Grid.Column="0"
+                   VerticalAlignment="Center"
+                   Margin="10,0,0,0"/>
 
                     <Button x:Name="btnMinimize"
-                                Style="{StaticResource controlButton}"
-                                Tag="{StaticResource color8}"
-                                Grid.Column="1"
-                                Click="btnMinimize_Click"
-                                HorizontalAlignment="Center">
+                    Style="{StaticResource controlButton}"
+                    Tag="{StaticResource color8}"
+                    Grid.Column="1"
+                    Click="btnMinimize_Click"
+                    HorizontalAlignment="Center">
                         <fa:IconImage Icon="WindowMinimize" Width="12" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
 
                     <Button x:Name="btnMaximize"
-                                Style="{StaticResource controlButton}"
-                                Tag="{StaticResource color6}"
-                                Grid.Column="2"
-                                Click="btnMaximize_Click"
-                                HorizontalAlignment="Center">
+                    Style="{StaticResource controlButton}"
+                    Tag="{StaticResource color6}"
+                    Grid.Column="2"
+                    Click="btnMaximize_Click"
+                    HorizontalAlignment="Center">
                         <fa:IconImage Icon="Square" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
 
                     <Button x:Name="btnClose"
-                                Style="{StaticResource controlButton}"
-                                Tag="{StaticResource color4}"
-                                Grid.Column="3"
-                                Click="btnClose_Click"
-                                HorizontalAlignment="Center">
+                    Style="{StaticResource controlButton}"
+                    Tag="{StaticResource color4}"
+                    Grid.Column="3"
+                    Click="btnClose_Click"
+                    HorizontalAlignment="Center">
                         <fa:IconImage Icon="Xmark" Style="{StaticResource controlButtonIcon}"/>
                     </Button>
                 </Grid>
@@ -107,125 +107,266 @@
                                 <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
                             </LinearGradientBrush>
                         </Border.BorderBrush>
-                        <materialDesign:Card Background="#00020D" Opacity="0.78">
-                            <StackPanel Orientation="Vertical">
-                                <Viewbox>
-                                    <TextBlock Text="Create your" Margin="-45 5 10 5" Style="{StaticResource KanitFont}" FontSize="10">
-                                        <Run Foreground="White">Create your own</Run>
-                                        <Run Foreground="{StaticResource titleColor1}">BlueLock</Run>
-                                        <Run Foreground="White">profile</Run>
-                                    </TextBlock>
-                                </Viewbox>
 
-                                <Viewbox Margin="0 0 0 10">
-                                    <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                        <TextBox x:Name="tbHeight" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0"/>
-                                        <materialDesign:HintAssist.Hint>
-                                            <StackPanel Orientation="Horizontal">
-                                                <materialDesign:PackIcon
-                                                    Margin="0 0 5 0"
-                                                    Kind="Ruler" />
-                                                <TextBlock
-                                                    Margin="0 1 0 0"
-                                                    Text="Height (cm)" />
-                                            </StackPanel>
-                                        </materialDesign:HintAssist.Hint>
-                                    </Border>
-                                </Viewbox>
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <materialDesign:Card Background="#00020D" Opacity="0.78">
+                                <StackPanel Orientation="Vertical">
+                                    <Viewbox>
+                                        <TextBlock Text="Enter your" Margin="-30 5 20 5" Style="{StaticResource KanitFont}" FontSize="10">
+                            <Run Foreground="White">Create your </Run>
+                            <Run Foreground="{StaticResource titleColor1}">BlueLock</Run>
+                            <Run Foreground="White"> Player Profile</Run>
+                                        </TextBlock>
+                                    </Viewbox>
 
-                                <Viewbox Margin="0 0 0 10">
-                                    <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
-                                        <TextBox x:Name="tbWeight" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0"/>
-                                        <materialDesign:HintAssist.Hint>
-                                            <StackPanel Orientation="Horizontal">
-                                                <materialDesign:PackIcon
-                                                    Margin="0 0 5 0"
-                                                    Kind="Scale" />
-                                                <TextBlock
-                                                    Margin="0 1 0 0"
-                                                    Text="Weight (kg)" />
-                                            </StackPanel>
-                                        </materialDesign:HintAssist.Hint>
-                                    </Border>
-                                </Viewbox>
-                                
-                                <Viewbox Margin="10 0 10 0">
-                                    <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="12 6 26 0">
-                                    <DatePicker x:Name="dpBirthdate"
-                                                Background="Transparent" 
-                                                Foreground="Cyan" 
-                                                FontSize="10" 
-                                                Height="35" 
-                                                Width="260" 
-                                                Margin="12 6 26 0"
-                                                DisplayDateStart="1900-01-01"
-                                                DisplayDateEnd="2023-12-31"/>
-                                    <materialDesign:HintAssist.Hint>
-                                            <StackPanel Orientation="Horizontal" Margin="-180 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <materialDesign:PackIcon
-                                                Margin="0 0 5 0"
-                                                Kind="Calendar"/>
-                                            <TextBlock
-                                                Margin="0 1 0 0"
-                                                Text="Birthdate"/>
+                                    <Viewbox Margin="0 0 0 10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="110" Margin="20 5 10 0">
+                                                <TextBox x:Name="tbHeight" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbHeight_TextChanged" Text="{Binding Height}" Tag="{Binding TbHeightErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Ruler" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Height (cm)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="110" Margin="10 5 20 0">
+                                                <TextBox x:Name="tbWeight" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbWeight_TextChanged" Text="{Binding Weight}" Tag="{Binding TbWeightErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Scale" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Weight (kg)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
                                         </StackPanel>
-                                    </materialDesign:HintAssist.Hint>
-                                    </Border>
-                                </Viewbox>
+                                    </Viewbox>
 
-                                <Viewbox Margin="25 10 25 0">
-                                    <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="12 6 26 0">
-                                    <ComboBox x:Name="cbCountry"
-                                              ItemsSource="{Binding Source={x:Static models:CountryData.AllCountries}}" 
-                                              Height="35" 
-                                              Width="310" 
-                                              Background="Transparent"
-                                              HorizontalContentAlignment="Center">
-                                        <ComboBox.ItemTemplate>
-                                            <DataTemplate DataType="models:CountryData">
-                                                <StackPanel Orientation="Horizontal" Background="Transparent">
-                                                    <Image Source="{Binding Path=Iso2, Converter={StaticResource CountryIdToFlagImageSourceConverter}}"
-                                                           Stretch="None" 
-                                                           Width="25" 
-                                                           Height="20"
-                                                           HorizontalAlignment="Center"
-                                                           VerticalAlignment="Center"
-                                                           RenderOptions.BitmapScalingMode="HighQuality"/>
-                                                    <TextBlock Text="{Binding Path=Name}" Margin="5 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Cyan" FontSize="10"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ComboBox.ItemTemplate>
+                                    <Viewbox Height="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbHeightErrorVisibility}" Text="{Binding TbHeightErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 100 0"/>
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbWeightErrorVisibility}" Text="{Binding TbWeightErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="100 0 0 0"/>
+                                        </StackPanel>
+                                    </Viewbox>
 
+                                    <!--<Viewbox Margin="10 0 10 0">
+                                        <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="310" Margin="10 10 10 0">
+                                            <ComboBox x:Name="cbCountry"
+                                                      ItemsSource="{Binding Source={x:Static models:CountryData.AllCountries}}" 
+                                                      Height="45" 
+                                                      Width="300" 
+                                                      Background="Transparent"
+                                                      HorizontalContentAlignment="Center"
+                                                      SelectedItem="{Binding SelectedCountry}">
+                                                <ComboBox.ItemTemplate>
+                                                    <DataTemplate DataType="models:CountryData">
+                                                        <StackPanel Orientation="Horizontal" Background="Transparent">
+                                                            <Image Source="{Binding Path=Iso2, Converter={StaticResource CountryIdToFlagImageSourceConverter}}"
+                                               Stretch="None" 
+                                               Width="25" 
+                                               Height="20"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               RenderOptions.BitmapScalingMode="HighQuality"/>
+                                                            <TextBlock Text="{Binding Path=Name}" Margin="5 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Cyan" FontSize="10"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ComboBox.ItemTemplate>
+
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal" Margin="-140 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon
+                                        Margin="0 0 15 0"
+                                        Kind="Flag"
+                                        Foreground="White"/>
+                                                        <TextBlock
+                                        Foreground="White"
+                                        Margin="0 0 0 0"
+                                        Text="Nationality"/>
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </ComboBox>
+                                        </Border>
+                                    </Viewbox>-->
+
+                                    <Viewbox Margin="0 0 0 10">
+                                        <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
+                                            <TextBox x:Name="tbCountry" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Country}"/>
                                             <materialDesign:HintAssist.Hint>
-                                                <StackPanel Orientation="Horizontal" Margin="-140 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                <StackPanel Orientation="Horizontal">
                                                     <materialDesign:PackIcon
-                                                    Margin="0 0 15 0"
-                                                    Kind="Flag"
-                                                    Foreground="White"/>
+                                                    Margin="0 0 5 0"
+                                                    Kind="Flag"/>
                                                     <TextBlock
-                                                    Foreground="White"
-                                                    Margin="0 0 0 0"
-                                                    Text="Nationality"/>
+                                                    Margin="0 1 0 0"
+                                                    Text="Country"/>
                                                 </StackPanel>
                                             </materialDesign:HintAssist.Hint>
-                                        </ComboBox>
-                                    </Border>
-                                </Viewbox>
+                                        </Border>
+                                    </Viewbox>
 
-                                <Viewbox Margin="20 0 20 0">
-                                    <Button
+                                    <Viewbox Margin="0 10 0 10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="145" Margin="20 5 10 0">
+                                                <TextBox x:Name="tbBirthday" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="140" Margin="12 6 6 0" TextChanged="tbBirthday_TextChanged" Text="{Binding Birthday}" Tag="{Binding TbBirthdayErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="DateRange" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Birthday (dd/mm/yyyy)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                            
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="110" Margin="10 5 20 0">
+                                                <TextBox x:Name="tbGender" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" Text="{Binding Gender}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="GenderMale" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Gender" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Height="15" Margin="0 0 230 0">
+                                        <TextBlock Foreground="Red" Visibility="{Binding TbBirthdayErrorVisibility}" Text="{Binding TbBirthdayErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Viewbox>
+
+                                    <Viewbox>
+                                        <TextBlock Text="Enter your" Margin="-30 5 20 5" Style="{StaticResource KanitFont}" FontSize="10">
+                            <Run Foreground="White">Enter your</Run>
+                            <Run Foreground="White">player</Run>
+                            <Run Foreground="{StaticResource titleColor1}"> Stats</Run>
+                                        </TextBlock>
+                                    </Viewbox>
+
+                                    <Viewbox Margin="0 0 0 10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="115" Margin="20 5 10 0">
+                                                <TextBox x:Name="tbShooting" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbShooting_TextChanged" Text="{Binding Shooting}" Tag="{Binding TbShootingErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Soccer"/>
+                                                        <TextBlock Margin="0 1 0 0" Text="Shooting (1-99)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="115" Margin="10 5 20 0">
+                                                <TextBox x:Name="tbDribbling" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbDribbling_TextChanged" Text="{Binding Dribbling}" Tag="{Binding TbDribblingErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Soccer" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Dribbling (1-99)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Height="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbShootingErrorVisibility}" Text="{Binding TbShootingErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 80 0"/>
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbDribblingErrorVisibility}" Text="{Binding TbDribblingErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="90 0 0 0"/>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Margin="0 0 0 10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="115" Margin="20 5 10 0">
+                                                <TextBox x:Name="tbPassing" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbPassing_TextChanged" Text="{Binding Passing}" Tag="{Binding TbPassingErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Soccer"/>
+                                                        <TextBlock Margin="0 1 0 0" Text="Passing (1-99)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="115" Margin="10 5 20 0">
+                                                <TextBox x:Name="tbPhysical" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbPhysical_TextChanged" Text="{Binding Physical}" Tag="{Binding TbPhysicalErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Soccer" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Physical (1-99)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Height="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbPassingErrorVisibility}" Text="{Binding TbPassingErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 80 0"/>
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbPhysicalErrorVisibility}" Text="{Binding TbPhysicalErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="90 0 0 0"/>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Margin="0 0 0 10">
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="115" Margin="20 5 10 0">
+                                                <TextBox x:Name="tbTouch" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbTouch_TextChanged" Text="{Binding Touch}" Tag="{Binding TbTouchErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Soccer"/>
+                                                        <TextBlock Margin="0 1 0 0" Text="Touch (1-99)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                            <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="115" Margin="10 5 20 0">
+                                                <TextBox x:Name="tbPace" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="120" Margin="12 6 6 0" TextChanged="tbPace_TextChanged" Text="{Binding Pace}" Tag="{Binding TbPaceErrorVisibility}"/>
+                                                <materialDesign:HintAssist.Hint>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <materialDesign:PackIcon Margin="0 0 5 0" Kind="Soccer" />
+                                                        <TextBlock Margin="0 1 0 0" Text="Pace (1-99)" />
+                                                    </StackPanel>
+                                                </materialDesign:HintAssist.Hint>
+                                            </Border>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Height="15" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbTouchErrorVisibility}" Text="{Binding TbTouchErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 80 0"/>
+                                            <TextBlock Foreground="Red" Visibility="{Binding TbPaceErrorVisibility}" Text="{Binding TbPaceErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="90 0 0 0"/>
+                                        </StackPanel>
+                                    </Viewbox>
+
+                                    <Viewbox Margin="35">
+                                        <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="0">
+                                            <Image x:Name="selectedImage" Source="{Binding Path=ImagePath, Converter={StaticResource ByteArrayToBitmapImageConverter},Mode=OneWay}" Stretch="UniformToFill" Margin="35"/>
+                                        </Border>
+                                    </Viewbox>
+
+                                    <Viewbox Margin="50 0 50 0">
+                                        <Button
                                             Width="300" 
                                             Height="30"
-                                            Margin="0 10 0 0"
+                                            Margin="0 0 0 0"
                                             materialDesign:ButtonAssist.CornerRadius="15"
                                             Background="Transparent"
                                             BorderBrush="#202020"
-                                            BorderThickness="1">
-                                        <TextBlock Text="Next" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
-                                    </Button>
-                                </Viewbox>
-                            </StackPanel>
-                        </materialDesign:Card>
+                                            BorderThickness="1"
+                                            Click="btnChooseImage_Click">
+                                            <TextBlock Text="Choose image" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
+                                        </Button>
+                                    </Viewbox>
+                                    
+                                    <Viewbox Margin="20 20 20 10">
+                                        <Button
+                                            Width="300" 
+                                            Height="30"
+                                            Margin="0 30 0 0"
+                                            materialDesign:ButtonAssist.CornerRadius="15"
+                                            Background="Transparent"
+                                            BorderBrush="#202020"
+                                            BorderThickness="1"
+                                            Command="{Binding NextCommand}">
+                                            <TextBlock Text="Next" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
+                                        </Button>
+                                    </Viewbox>
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </ScrollViewer>
                     </Border>
                 </Grid>
             </Grid>
