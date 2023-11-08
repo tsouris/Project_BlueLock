@@ -1,6 +1,9 @@
-﻿using Project_BlueLock.ViewModels;
+﻿using Newtonsoft.Json;
+using Project_BlueLock.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,7 +18,6 @@ namespace Project_BlueLock.Views
         public HomeView()
         {
             InitializeComponent();
-            DataContext = new HomeVM();
         }
 
         [DllImport("user32.dll")]

@@ -33,8 +33,13 @@
     <None Remove="Assets\Images\BlueLock_text.jpg" />
     <None Remove="Assets\Images\createPlayerProfile_page.jpg" />
     <None Remove="Assets\Images\createProfile_page.webp" />
+    <None Remove="Assets\Images\eng.jpg" />
     <None Remove="Assets\Images\flags.png" />
+    <None Remove="Assets\Images\fr.jpg" />
+    <None Remove="Assets\Images\ger.jpg" />
+    <None Remove="Assets\Images\it.jpg" />
     <None Remove="Assets\Images\registration_page.webp" />
+    <None Remove="Assets\Images\sp.jpg" />
     <None Remove="Assets\Images\training_image1.webp" />
     <None Remove="Assets\Images\training_image2.webp" />
     <None Remove="Assets\Images\training_image3.jpg" />
@@ -50,6 +55,7 @@
   <ItemGroup>
     <PackageReference Include="FamFamFam.Flags.Wpf" Version="1.2.1" />
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.54" />
     <PackageReference Include="LottieSharp" Version="2.3.0" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
@@ -82,8 +88,13 @@
     <Resource Include="Assets\Fonts\Kanit\OFL.txt" />
     <Resource Include="Assets\Images\createPlayerProfile_page.jpg" />
     <Resource Include="Assets\Images\createProfile_page.webp" />
+    <Resource Include="Assets\Images\eng.jpg" />
     <Resource Include="Assets\Images\flags.png" />
+    <Resource Include="Assets\Images\fr.jpg" />
+    <Resource Include="Assets\Images\ger.jpg" />
+    <Resource Include="Assets\Images\it.jpg" />
     <Resource Include="Assets\Images\registration_page.webp" />
+    <Resource Include="Assets\Images\sp.jpg" />
     <Resource Include="Assets\Images\training_image1.webp" />
     <Resource Include="Assets\Images\training_image2.webp" />
     <Resource Include="Assets\Images\training_image3.jpg" />
