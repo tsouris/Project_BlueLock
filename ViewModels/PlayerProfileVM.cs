@@ -1,14 +1,10 @@
 ﻿using Project_BlueLock.Data.DB;
-using Project_BlueLock.Domain.Models;
 using Project_BlueLock.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media.Imaging;
 
 namespace Project_BlueLock.ViewModels
 {
@@ -220,33 +216,6 @@ namespace Project_BlueLock.ViewModels
                 }
             }
         }
-
-        private byte[] _imagePath;
-        public byte[] ImagePath
-        {
-            get { return _imagePath; }
-            set
-            {
-                if (value != _imagePath)
-                {
-                    _imagePath = value;
-                    OnPropertyChanged(nameof(ImagePath));
-                }
-            }
-        }
-
-        //private string _imagePath;
-        //public string ImagePath
-        //{
-        //    get { return _imagePath; }
-        //    set
-        //    {
-        //        _imagePath = value;
-        //        OnPropertyChanged(nameof(ImagePath));
-        //        //TbBirthdayErrorVisibility = Visibility.Collapsed;
-        //        //TbBirthdayErrorText = "";
-        //    }
-        //}
 
         private Visibility tbHeightErrorVisibility = Visibility.Collapsed;
         public Visibility TbHeightErrorVisibility
@@ -550,7 +519,7 @@ namespace Project_BlueLock.ViewModels
                 try
                 {
                     DatabaseManager dbManager = new DatabaseManager();
-                    dbManager.InsertPlayer(Height, Weight, Country, Birthday, Gender, Shooting, Dribbling, Passing, Physical, Touch, Pace, ImagePath);
+                    dbManager.InsertPlayer(Height, Weight, Country, Birthday, Gender, Shooting, Dribbling, Passing, Physical, Touch, Pace);
                     MessageBox.Show("Player profile created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     ViewChanged?.Invoke(this, new EventArgs<string>("4"));
@@ -619,32 +588,6 @@ namespace Project_BlueLock.ViewModels
                 return stat >= 0 && stat <= 99;
             }
             return false;
-        }
-
-        public class ByteArrayToBitmapImageConverter : IValueConverter
-        {
-            public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                var rawImageData = value as byte[];
-                if (rawImageData == null)
-                    return null;
-
-                var bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
-                using (var stream = new MemoryStream(rawImageData))
-                {
-                    bitmapImage.BeginInit();
-                    bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-                    bitmapImage.CacheOption = BitmapCacheOption.Default;
-                    bitmapImage.StreamSource = stream;
-                    bitmapImage.EndInit();
-                }
-                return bitmapImage;
-            }
-
-            public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                throw new NotImplementedException();
-            }
         }
     }
 }

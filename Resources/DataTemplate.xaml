@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ViewModel="clr-namespace:Project_BlueLock.ViewModels"
                     xmlns:view="clr-namespace:Project_BlueLock.Views"
-                    xmlns:Flags="clr-namespace:Project_BlueLock.Utilities">
+                    xmlns:Flags="clr-namespace:Project_BlueLock.Utilities" 
+                    xmlns:Converters="clr-namespace:Project_BlueLock.Converters">
 
     <DataTemplate DataType="{x:Type ViewModel:LoginVM}">
         <view:LoginView/>
@@ -37,4 +38,6 @@
     </DataTemplate>
 
     <Flags:CountryIdToFlagImageSourceConverter x:Key="CountryIdToFlagImageSourceConverter"/>
+
+    <Converters:GoalScorersToStringConverter x:Key="GoalScorersToStringConverter"/>
 </ResourceDictionary>

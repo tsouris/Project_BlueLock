@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\Animations\Animation_1.json" />
     <None Remove="Assets\Fonts\Anton\Anton-Regular.ttf" />
     <None Remove="Assets\Fonts\Anton\OFL.txt" />
     <None Remove="Assets\Fonts\Kanit\Kanit-Black.ttf" />
@@ -67,7 +66,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\Animations\Animation_1.json" />
     <Resource Include="Assets\Fonts\Kanit\Kanit-Black.ttf" />
     <Resource Include="Assets\Fonts\Kanit\Kanit-BlackItalic.ttf" />
     <Resource Include="Assets\Fonts\Kanit\Kanit-BoldItalic.ttf" />

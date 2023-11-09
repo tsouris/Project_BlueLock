@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Project_BlueLock.Domain.Models
 {
-    class ScoreModel
+    public class Team
     {
-        public string HomeTeam { get; set; }
-        public string AwayTeam { get; set; }
+        public string Name { get; set; } // Add a property for team name
     }
 }
