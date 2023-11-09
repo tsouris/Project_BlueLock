@@ -4,20 +4,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewmodels="clr-namespace:Project_BlueLock.ViewModels"
+             xmlns:converters="clr-namespace:Project_BlueLock.Converters"
              d:DataContext="{d:DesignInstance Type=viewmodels:MatchContentVM}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ItemsControl x:Name="listBoxMatches" Grid.Row="2" Margin="25">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding HomeTeam}"/>
-                        <TextBlock Text=" vs " />
-                        <TextBlock Text="{Binding AwayTeam}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <DataGrid ItemsSource="{Binding Scoreboards}" AutoGenerateColumns="False" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}" />
+                <DataGridTextColumn Header="Team A" Binding="{Binding TeamA}" />
+                <DataGridTextColumn Header="Team B" Binding="{Binding TeamB}" />
+                <DataGridTextColumn Header="Score" Binding="{Binding Score}" />
+                <DataGridTextColumn Header="Goal Scorers" Binding="{Binding GoalScorers}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Text" Value="{Binding GoalScorers, Converter={StaticResource GoalScorersToStringConverter}}" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

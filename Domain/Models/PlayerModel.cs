@@ -4,7 +4,7 @@ namespace Project_BlueLock.Domain.Models
 {
     public class PlayerModel
     {
-        public int ID { get; set; }
+        public int PlayerID { get; set; }
         public int Height { get; set; }
         public int Weight { get; set; }
         public string Country { get; set; }
@@ -16,6 +16,5 @@ namespace Project_BlueLock.Domain.Models
         public int Physical { get; set; }
         public int Touch { get; set; }
         public int Pace { get; set; }
-        public string ImagePath { get; set; }
     }
 }

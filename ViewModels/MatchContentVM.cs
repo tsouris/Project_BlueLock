@@ -1,9 +1,13 @@
-﻿using Project_BlueLock.Domain.Models;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
+using Project_BlueLock.Domain.Models;
 using Project_BlueLock.Utilities;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Net.Http;
-using System.Windows;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Project_BlueLock.ViewModels
 {
@@ -14,48 +18,75 @@ namespace Project_BlueLock.ViewModels
 
         public event EventHandler<EventArgs<string>>? ViewChanged;
 
-        public ObservableCollection<ScoreModel> Scores { get; set; }
+        //public ObservableCollection<FootballMatch> Matches { get; set; }
 
+        public ObservableCollection<ScoreboardModel> Scoreboards { get; set; } = new ObservableCollection<ScoreboardModel>();
         // Constructor
         public MatchContentVM()
         {
-            LoadScoresAsync();
-            Scores = new ObservableCollection<ScoreModel>();
-            
+            // Call method to fetch match data
+            ScrapeScoreboardsAsync();
         }
 
-        private async void LoadScoresAsync()
+        public async Task ScrapeScoreboardsAsync()
         {
-            try
+            using (HttpClient client = new HttpClient())
             {
-                string url = "https://www.flashscore.com/football/england/premier-league/#/I3O5jpB2/live";
-                HttpClient client = new HttpClient();
-                string html = await client.GetStringAsync(url);
+                string url = "https://football.ua/scoreboard/";
+                string htmlContent = await client.GetStringAsync(url);
 
-                HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
-                doc.LoadHtml(html);
+                HtmlDocument htmlDocument = new HtmlDocument();
+                htmlDocument.LoadHtml(htmlContent);
 
-                // Use XPath or other selectors to locate the scores in the HTML
-                // For example, if the scores are in a table with class "live-table", you might do:
-                var scoreNodes = doc.DocumentNode.SelectNodes("//table[@class='live-table']//tr");
+                var matchNodes = htmlDocument.DocumentNode.SelectNodes("//div[@class='match']");
 
-                if (scoreNodes != null)
+                if (matchNodes != null)
                 {
-                    foreach (var node in scoreNodes)
+                    foreach (var node in matchNodes)
                     {
-                        string homeTeam = node.SelectSingleNode(".//td[@class='home']")?.InnerText.Trim();
-                        string awayTeam = node.SelectSingleNode(".//td[@class='away']")?.InnerText.Trim();
+                        ScoreboardModel scoreboard = new ScoreboardModel();
 
-                        if (!string.IsNullOrWhiteSpace(homeTeam) && !string.IsNullOrWhiteSpace(awayTeam))
+                        var timeNode = node.SelectSingleNode(".//td[@class='time']/a");
+                        if (timeNode != null)
                         {
-                            Scores.Add(new ScoreModel { HomeTeam = homeTeam, AwayTeam = awayTeam });
+                            scoreboard.Time = timeNode.InnerText;
                         }
+
+                        var leftTeamNode = node.SelectSingleNode(".//td[@class='left-team']/a");
+                        if (leftTeamNode != null)
+                        {
+                            scoreboard.TeamA = leftTeamNode.InnerText;
+                        }
+
+                        var rightTeamNode = node.SelectSingleNode(".//td[@class='right-team']/a");
+                        if (rightTeamNode != null)
+                        {
+                            scoreboard.TeamB = rightTeamNode.InnerText;
+                        }
+
+                        var scoreNode = node.SelectSingleNode(".//td[@class='score inprogress']/a");
+                        if (scoreNode != null)
+                        {
+                            scoreboard.Score = scoreNode.InnerText;
+                        }
+
+                        // Goal Scorers
+                        var goalNodes = node.SelectNodes(".//table[@class='goals-table']/tbody/tr");
+                        if (goalNodes != null)
+                        {
+                            foreach (var goalNode in goalNodes)
+                            {
+                                var scorerNode = goalNode.SelectSingleNode(".//td[@class='right']/span/b");
+                                if (scorerNode != null)
+                                {
+                                    scoreboard.GoalScorers.Add(scorerNode.InnerText);
+                                }
+                            }
+                        }
+
+                        Scoreboards.Add(scoreboard);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
     }

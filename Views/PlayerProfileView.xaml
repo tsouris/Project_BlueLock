@@ -331,13 +331,13 @@
                                         </StackPanel>
                                     </Viewbox>
 
-                                    <Viewbox Margin="35">
+                                    <!--<Viewbox Margin="35">
                                         <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="0">
                                             <Image x:Name="selectedImage" Source="{Binding Path=ImagePath, Converter={StaticResource ByteArrayToBitmapImageConverter},Mode=OneWay}" Stretch="UniformToFill" Margin="35"/>
                                         </Border>
-                                    </Viewbox>
+                                    </Viewbox>-->
 
-                                    <Viewbox Margin="50 0 50 0">
+                                    <!--<Viewbox Margin="50 0 50 0">
                                         <Button
                                             Width="300" 
                                             Height="30"
@@ -349,7 +349,7 @@
                                             Click="btnChooseImage_Click">
                                             <TextBlock Text="Choose image" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
                                         </Button>
-                                    </Viewbox>
+                                    </Viewbox>-->
                                     
                                     <Viewbox Margin="20 20 20 10">
                                         <Button
