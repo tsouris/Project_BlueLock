@@ -149,46 +149,6 @@
                                         </StackPanel>
                                     </Viewbox>
 
-                                    <!--<Viewbox Margin="10 0 10 0">
-                                        <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="310" Margin="10 10 10 0">
-                                            <ComboBox x:Name="cbCountry"
-                                                      ItemsSource="{Binding Source={x:Static models:CountryData.AllCountries}}" 
-                                                      Height="45" 
-                                                      Width="300" 
-                                                      Background="Transparent"
-                                                      HorizontalContentAlignment="Center"
-                                                      SelectedItem="{Binding SelectedCountry}">
-                                                <ComboBox.ItemTemplate>
-                                                    <DataTemplate DataType="models:CountryData">
-                                                        <StackPanel Orientation="Horizontal" Background="Transparent">
-                                                            <Image Source="{Binding Path=Iso2, Converter={StaticResource CountryIdToFlagImageSourceConverter}}"
-                                               Stretch="None" 
-                                               Width="25" 
-                                               Height="20"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Center"
-                                               RenderOptions.BitmapScalingMode="HighQuality"/>
-                                                            <TextBlock Text="{Binding Path=Name}" Margin="5 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Cyan" FontSize="10"/>
-                                                        </StackPanel>
-                                                    </DataTemplate>
-                                                </ComboBox.ItemTemplate>
-
-                                                <materialDesign:HintAssist.Hint>
-                                                    <StackPanel Orientation="Horizontal" Margin="-140 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                        <materialDesign:PackIcon
-                                        Margin="0 0 15 0"
-                                        Kind="Flag"
-                                        Foreground="White"/>
-                                                        <TextBlock
-                                        Foreground="White"
-                                        Margin="0 0 0 0"
-                                        Text="Nationality"/>
-                                                    </StackPanel>
-                                                </materialDesign:HintAssist.Hint>
-                                            </ComboBox>
-                                        </Border>
-                                    </Viewbox>-->
-
                                     <Viewbox Margin="0 0 0 10">
                                         <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="10" Height="35" Width="300" Margin="20 5 20 0">
                                             <TextBox x:Name="tbCountry" Background="Transparent" Foreground="White" FontSize="10" Height="35" Width="260" Margin="12 6 26 0" Text="{Binding Country}"/>
@@ -324,33 +284,6 @@
                                         </StackPanel>
                                     </Viewbox>
 
-                                    <Viewbox Height="15" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Foreground="Red" Visibility="{Binding TbTouchErrorVisibility}" Text="{Binding TbTouchErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 80 0"/>
-                                            <TextBlock Foreground="Red" Visibility="{Binding TbPaceErrorVisibility}" Text="{Binding TbPaceErrorText}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="90 0 0 0"/>
-                                        </StackPanel>
-                                    </Viewbox>
-
-                                    <!--<Viewbox Margin="35">
-                                        <Border BorderBrush="#202020" BorderThickness="1" CornerRadius="0">
-                                            <Image x:Name="selectedImage" Source="{Binding Path=ImagePath, Converter={StaticResource ByteArrayToBitmapImageConverter},Mode=OneWay}" Stretch="UniformToFill" Margin="35"/>
-                                        </Border>
-                                    </Viewbox>-->
-
-                                    <!--<Viewbox Margin="50 0 50 0">
-                                        <Button
-                                            Width="300" 
-                                            Height="30"
-                                            Margin="0 0 0 0"
-                                            materialDesign:ButtonAssist.CornerRadius="15"
-                                            Background="Transparent"
-                                            BorderBrush="#202020"
-                                            BorderThickness="1"
-                                            Click="btnChooseImage_Click">
-                                            <TextBlock Text="Choose image" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource KanitFont}" Foreground="{StaticResource titleColor1}" FontSize="15"/>
-                                        </Button>
-                                    </Viewbox>-->
-                                    
                                     <Viewbox Margin="20 20 20 10">
                                         <Button
                                             Width="300" 

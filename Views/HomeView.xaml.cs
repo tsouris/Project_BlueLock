@@ -1,9 +1,5 @@
-﻿using Newtonsoft.Json;
-using Project_BlueLock.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,11 +18,7 @@ namespace Project_BlueLock.Views
 
         [DllImport("user32.dll")]
         public static extern IntPtr SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
-        //private void pnlControlBar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    WindowInteropHelper helper = new WindowInteropHelper(this);
-        //    SendMessage(helper.Handle, 161, 2, 0);
-        //}
+
         private void pnlControlBar_MouseEnter(object sender, MouseEventArgs e)
         {
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
@@ -63,28 +55,5 @@ namespace Project_BlueLock.Views
                 parentWindow.WindowState = WindowState.Minimized;
             }
         }
-
-        //private void Button_ContextMenuOpening(object sender, ContextMenuEventArgs e)
-        //{
-        //    userOptionsContextMenu.PlacementTarget = sender as UIElement;
-        //    userOptionsContextMenu.IsOpen = true;
-        //    e.Handled = true;
-        //}
-
-        //private void LogOut_Click(object sender, RoutedEventArgs e)
-        //{
-        //    LoginView loginView = new LoginView(); 
-        //    Window.GetWindow(this).Content = loginView;
-        //}
-
-        //private void rbMatches_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string competitionId = "CL"; // Replace with the desired competition ID
-
-        //    Application.Current.Dispatcher.Invoke(async () =>
-        //    {
-        //        await ((HomeVM)DataContext).LoadMatchesAsync(competitionId);
-        //    });
-        //}
     }
 }

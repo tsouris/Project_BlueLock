@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
-using Project_BlueLock.Domain.Models;
-using Project_BlueLock.Models;
-using System;
+﻿using System;
 using System.Configuration;
 using System.Data.SqlClient;
 
@@ -39,7 +36,7 @@ namespace Project_BlueLock.Data.DB
             }
         }
 
-        public void InsertPlayer(string height, string weight, string country, string birthday, string gender, string shooting, string dribbling, string passing, string physical, string touch, string pace)
+        public void InsertPlayer(int userId, string height, string weight, string country, string birthday, string gender, string shooting, string dribbling, string passing, string physical, string touch, string pace)
         {
             try
             {
@@ -69,75 +66,6 @@ namespace Project_BlueLock.Data.DB
                 throw new Exception("Error inserting player into the database: " + ex.Message, ex);
             }
         }
-
-        //public int ValidateCredentialsAndGetUserId(string username, string password)
-        //{
-        //    try
-        //    {
-        //        using (SqlConnection con = new SqlConnection(connectionString))
-        //        {
-        //            con.Open();
-        //            string query = "SELECT UserID FROM Users WHERE Username = @Username AND PasswordHash = @PasswordHash";
-        //            SqlCommand cmd = new SqlCommand(query, con);
-
-        //            cmd.Parameters.AddWithValue("@Username", username);
-        //            cmd.Parameters.AddWithValue("@PasswordHash", password);
-
-        //            SqlDataReader reader = cmd.ExecuteReader();
-
-        //            if (reader.Read())
-        //            {
-        //                return (int)reader["UserID"];
-        //            }
-
-        //            return -1; // Invalid credentials
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Error validating user credentials: " + ex.Message, ex);
-        //    }
-        //}
-
-        //public UserModel GetUserById(int userId)
-        //{
-        //    try
-        //    {
-        //        using (SqlConnection con = new SqlConnection(connectionString))
-        //        {
-        //            con.Open();
-        //            string query = "SELECT * FROM Users WHERE UserID = @UserID";
-        //            SqlCommand cmd = new SqlCommand(query, con);
-
-        //            cmd.Parameters.AddWithValue("@UserID", userId);
-
-        //            using (SqlDataReader reader = cmd.ExecuteReader())
-        //            {
-        //                if (reader.Read())
-        //                {
-        //                    // Assuming User is a class that represents user information
-        //                    UserModel user = new UserModel
-        //                    {
-        //                        UserID = (int)reader["UserID"],
-        //                        Name = (string)reader["Name"],
-        //                        Surname = (string)reader["Surname"],
-        //                        Username = (string)reader["Username"],
-        //                        PasswordHash = (string)reader["PasswordHash"]
-        //                        // Add other properties as needed
-        //                    };
-
-        //                    return user;
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Error retrieving user by ID from the database: " + ex.Message, ex);
-        //    }
-
-        //    return null; // Return null if user with given ID is not found
-        //}
 
         public bool ValidateCredentials(string username, string password)
         {

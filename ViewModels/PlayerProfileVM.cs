@@ -22,6 +22,17 @@ namespace Project_BlueLock.ViewModels
             NextCommand = new RelayCommand(CreatePlayerProfile);
         }
 
+        private int _userID;
+        public int UserID
+        {
+            get { return _userID; }
+            set
+            {
+                _userID = value;
+                OnPropertyChanged(nameof(UserID));
+            }
+        }
+
         private string _height;
         public string Height
         {
@@ -519,7 +530,7 @@ namespace Project_BlueLock.ViewModels
                 try
                 {
                     DatabaseManager dbManager = new DatabaseManager();
-                    dbManager.InsertPlayer(Height, Weight, Country, Birthday, Gender, Shooting, Dribbling, Passing, Physical, Touch, Pace);
+                    dbManager.InsertPlayer(UserID, Height, Weight, Country, Birthday, Gender, Shooting, Dribbling, Passing, Physical, Touch, Pace);
                     MessageBox.Show("Player profile created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     ViewChanged?.Invoke(this, new EventArgs<string>("4"));

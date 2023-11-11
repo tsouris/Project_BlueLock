@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace Project_BlueLock.Views
 {
@@ -46,24 +44,6 @@ namespace Project_BlueLock.Views
         {
             Application.Current.Shutdown();
         }
-
-        //private void btnChooseImage_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
-        //    openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png; *.gif; *.bmp)|*.jpg; *.jpeg; *.png; *.gif; *.bmp|All Files (*.*)|*.*";
-
-        //    bool? result = openFileDialog.ShowDialog();
-
-        //    if (result == true)
-        //    {
-        //        // Get the selected file path
-        //        string filePath = openFileDialog.FileName;
-
-        //        // Load the selected image
-        //        BitmapImage bitmap = new BitmapImage(new Uri(filePath));
-        //        selectedImage.Source = bitmap;
-        //    }
-        //}
 
         private void tbHeight_TextChanged(object sender, TextChangedEventArgs e)
         {

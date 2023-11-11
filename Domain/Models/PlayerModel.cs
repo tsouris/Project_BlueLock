@@ -5,8 +5,8 @@ namespace Project_BlueLock.Domain.Models
     public class PlayerModel
     {
         public int PlayerID { get; set; }
-        public int Height { get; set; }
-        public int Weight { get; set; }
+        public string Height { get; set; }
+        public string Weight { get; set; }
         public string Country { get; set; }
         public DateTime Birthday { get; set; }
         public string Gender { get; set; }
