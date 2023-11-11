@@ -29,12 +29,8 @@
         <view:MatchContentView/>
     </DataTemplate>
 
-    <DataTemplate DataType="{x:Type ViewModel:ProfileContentVM}">
-        <view:TrainingContentView/>
-    </DataTemplate>
-
     <DataTemplate DataType="{x:Type ViewModel:TrainingContentVM}">
-        <view:ProfileContentView/>
+        <view:TrainingContentView/>
     </DataTemplate>
 
     <Flags:CountryIdToFlagImageSourceConverter x:Key="CountryIdToFlagImageSourceConverter"/>

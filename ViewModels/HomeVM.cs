@@ -72,7 +72,6 @@ namespace Project_BlueLock.ViewModels
 
             ShowTrainingContentCommand = new RelayCommand(ExecuteShowTrainingContentCommand);
 
-            ShowProfileContentCommand = new RelayCommand(ExecuteShowProfileContentCommand);
 
             ExecuteShowHomeContentCommand(null);
         }
@@ -91,16 +90,9 @@ namespace Project_BlueLock.ViewModels
             Icon = IconChar.SoccerBall;
         }
 
-        private void ExecuteShowProfileContentCommand(object obj)
-        {
-            CurrentChildView = new TrainingContentVM();
-            Caption = "Profile";
-            Icon = IconChar.User;
-        }
-
         private void ExecuteShowTrainingContentCommand(object obj)
         {
-            CurrentChildView = new ProfileContentVM();
+            CurrentChildView = new TrainingContentVM();
             Caption = "Training";
             Icon = IconChar.Dumbbell;
         }

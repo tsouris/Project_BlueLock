@@ -468,10 +468,20 @@ namespace Project_BlueLock.ViewModels
                 errors.Add("Height is required.");
                 TbHeightErrorVisibility = Visibility.Visible;
             }
+            else if (!IsValidNumber(Height, out int height))
+            {
+                errors.Add("Height must be a number.");
+                TbHeightErrorVisibility = Visibility.Visible;
+            }
 
             if (string.IsNullOrWhiteSpace(Weight))
             {
                 errors.Add("Weight is required.");
+                TbWeightErrorVisibility = Visibility.Visible;
+            }
+            else if (!IsValidNumber(Weight, out int weight))
+            {
+                errors.Add("Weight must be a number.");
                 TbWeightErrorVisibility = Visibility.Visible;
             }
 
@@ -479,12 +489,16 @@ namespace Project_BlueLock.ViewModels
             {
                 errors.Add("Birthdate is required.");
                 TbBirthdayErrorVisibility = Visibility.Visible;
-
             }
 
             if (string.IsNullOrWhiteSpace(Shooting))
             {
                 errors.Add("Shooting is required.");
+                TbShootingErrorVisibility = Visibility.Visible;
+            }
+            else if (!IsValidStat(Shooting))
+            {
+                errors.Add("Shooting must be a number between 1 and 99.");
                 TbShootingErrorVisibility = Visibility.Visible;
             }
 
@@ -493,10 +507,20 @@ namespace Project_BlueLock.ViewModels
                 errors.Add("Dribbling is required.");
                 TbDribblingErrorVisibility = Visibility.Visible;
             }
+            else if (!IsValidStat(Dribbling))
+            {
+                errors.Add("Dribbling must be a number between 1 and 99.");
+                TbDribblingErrorVisibility = Visibility.Visible;
+            }
 
             if (string.IsNullOrWhiteSpace(Passing))
             {
                 errors.Add("Passing is required.");
+                TbPassingErrorVisibility = Visibility.Visible;
+            }
+            else if (!IsValidStat(Passing))
+            {
+                errors.Add("Passing must be a number between 1 and 99.");
                 TbPassingErrorVisibility = Visibility.Visible;
             }
 
@@ -505,16 +529,31 @@ namespace Project_BlueLock.ViewModels
                 errors.Add("Physical is required.");
                 TbPhysicalErrorVisibility = Visibility.Visible;
             }
+            else if (!IsValidStat(Physical))
+            {
+                errors.Add("Physical must be a number between 1 and 99.");
+                TbPhysicalErrorVisibility = Visibility.Visible;
+            }
 
             if (string.IsNullOrWhiteSpace(Touch))
             {
                 errors.Add("Touch is required.");
                 TbTouchErrorVisibility = Visibility.Visible;
             }
+            else if (!IsValidStat(Touch))
+            {
+                errors.Add("Touch must be a number between 1 and 99.");
+                TbTouchErrorVisibility = Visibility.Visible;
+            }
 
             if (string.IsNullOrWhiteSpace(Pace))
             {
                 errors.Add("Pace is required.");
+                TbPaceErrorVisibility = Visibility.Visible;
+            }
+            else if (!IsValidStat(Pace))
+            {
+                errors.Add("Pace must be a number between 1 and 99.");
                 TbPaceErrorVisibility = Visibility.Visible;
             }
 
@@ -589,7 +628,14 @@ namespace Project_BlueLock.ViewModels
 
         private bool IsDateValid(string date, out DateTime parsedDate)
         {
-            return DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate);
+            string[] formats = { "dd/MM/yyyy", "MM/dd/yyyy" };
+
+            return DateTime.TryParseExact(date, formats, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsedDate);
+        }
+
+        private bool IsValidNumber(string value, out int result)
+        {
+            return int.TryParse(value, out result);
         }
 
         private bool IsValidStat(string statValue)

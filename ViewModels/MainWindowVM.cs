@@ -51,7 +51,7 @@ namespace Project_BlueLock.ViewModels
                 pageViews.Data = "Data: " + s.Value.ToString();
             };
 
-            CurrentPageViewModel = _pageViewModels["4"];
+            CurrentPageViewModel = _pageViewModels["1"];
         }
     }
 }
