@@ -1,12 +1,9 @@
 ﻿using HtmlAgilityPack;
-using Newtonsoft.Json;
 using Project_BlueLock.Domain.Models;
 using Project_BlueLock.Utilities;
 using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Project_BlueLock.ViewModels
@@ -18,13 +15,10 @@ namespace Project_BlueLock.ViewModels
 
         public event EventHandler<EventArgs<string>>? ViewChanged;
 
-        //public ObservableCollection<FootballMatch> Matches { get; set; }
-
         public ObservableCollection<ScoreboardModel> Scoreboards { get; set; } = new ObservableCollection<ScoreboardModel>();
-        // Constructor
+
         public MatchContentVM()
         {
-            // Call method to fetch match data
             ScrapeScoreboardsAsync();
         }
 
@@ -46,43 +40,23 @@ namespace Project_BlueLock.ViewModels
                     {
                         ScoreboardModel scoreboard = new ScoreboardModel();
 
-                        var timeNode = node.SelectSingleNode(".//td[@class='time']/a");
-                        if (timeNode != null)
-                        {
-                            scoreboard.Time = timeNode.InnerText;
-                        }
+                        // Match Time
+                        scoreboard.Time = node.SelectSingleNode(".//td[@class='time']/a")?.InnerText;
 
-                        var leftTeamNode = node.SelectSingleNode(".//td[@class='left-team']/a");
-                        if (leftTeamNode != null)
-                        {
-                            scoreboard.TeamA = leftTeamNode.InnerText;
-                        }
+                        // Team A
+                        scoreboard.TeamA = node.SelectSingleNode(".//td[@class='left-team']/a")?.InnerText;
 
-                        var rightTeamNode = node.SelectSingleNode(".//td[@class='right-team']/a");
-                        if (rightTeamNode != null)
-                        {
-                            scoreboard.TeamB = rightTeamNode.InnerText;
-                        }
+                        // Team A Image
+                        scoreboard.TeamAImage = node.SelectSingleNode(".//td[@class='left-team']/span/img")?.GetAttributeValue("src", "");
 
-                        var scoreNode = node.SelectSingleNode(".//td[@class='score inprogress']/a");
-                        if (scoreNode != null)
-                        {
-                            scoreboard.Score = scoreNode.InnerText;
-                        }
+                        // Team B
+                        scoreboard.TeamB = node.SelectSingleNode(".//td[@class='right-team']/a")?.InnerText;
 
-                        // Goal Scorers
-                        var goalNodes = node.SelectNodes(".//table[@class='goals-table']/tbody/tr");
-                        if (goalNodes != null)
-                        {
-                            foreach (var goalNode in goalNodes)
-                            {
-                                var scorerNode = goalNode.SelectSingleNode(".//td[@class='right']/span/b");
-                                if (scorerNode != null)
-                                {
-                                    scoreboard.GoalScorers.Add(scorerNode.InnerText);
-                                }
-                            }
-                        }
+                        // Team B Image
+                        scoreboard.TeamBImage = node.SelectSingleNode(".//td[@class='right-team']/span/img")?.GetAttributeValue("src", "");
+
+                        // Score
+                        scoreboard.Score = node.SelectSingleNode(".//td[@class='score']/a")?.InnerText;
 
                         Scoreboards.Add(scoreboard);
                     }

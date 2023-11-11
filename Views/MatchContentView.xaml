@@ -9,20 +9,40 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <DataGrid ItemsSource="{Binding Scoreboards}" AutoGenerateColumns="False" IsReadOnly="True">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Time" Binding="{Binding Time}" />
-                <DataGridTextColumn Header="Team A" Binding="{Binding TeamA}" />
-                <DataGridTextColumn Header="Team B" Binding="{Binding TeamB}" />
-                <DataGridTextColumn Header="Score" Binding="{Binding Score}" />
-                <DataGridTextColumn Header="Goal Scorers" Binding="{Binding GoalScorers}">
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="TextBlock">
-                            <Setter Property="Text" Value="{Binding GoalScorers, Converter={StaticResource GoalScorersToStringConverter}}" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Viewbox>
+                <Border CornerRadius="6" BorderThickness="3" Opacity="0.85" Margin="0 0 0 0">
+                    <Border.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                            <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                            <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
+                            <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.BorderBrush>
+                    <DataGrid ItemsSource="{Binding Scoreboards}" AutoGenerateColumns="False" IsReadOnly="True" Background="Transparent">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Time" Binding="{Binding Time}" />
+                            <DataGridTextColumn Header="Team A" Binding="{Binding TeamA}" />
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding TeamAImage}" Width="15" Height="15"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Team B" Binding="{Binding TeamB}" />
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding TeamBImage}" Width="15" Height="15"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="Score" Binding="{Binding Score}" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Viewbox>
+        </ScrollViewer>
     </Grid>
 </UserControl>
